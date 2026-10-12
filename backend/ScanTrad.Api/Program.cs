@@ -17,6 +17,8 @@ builder.Services.AddScoped<IUserRepository, EfUserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddSingleton<IPasswordHasher, IdentityPasswordHasher>();
 
+builder.Services.AddHealthChecks();
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -35,11 +37,21 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+// Pas de redirection vers https en développement : le proxy du front appelle
+// l'API en http, et une redirection vers le port https serait une autre origine,
+// bloquée par le navigateur (CORS).
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Répond « Healthy » tant que l'API tourne : le front s'en sert pour vérifier
+// qu'il la joint, et Docker pourra s'en servir plus tard (US-9.7).
+app.MapHealthChecks("/api/health");
 
 app.Run();
 
