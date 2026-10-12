@@ -151,7 +151,7 @@ données ni du stockage — l'API (à venir) n'aura qu'à construire les six
 | Traduction locale | OPUS-MT (Helsinki-NLP, Marian) · NLLB-200 (Meta), exécutés en ONNX |
 | Tests | xUnit v3 |
 | API (à venir) | ASP.NET Core, Clean Architecture |
-| Front (à venir) | Technologies non arrêtées |
+| Front | Angular 22, organisé par fonctionnalité (voir `interne/front/CLAUDE.md`) |
 
 ## Feuille de route
 
@@ -193,6 +193,8 @@ données ni du stockage — l'API (à venir) n'aura qu'à construire les six
 - Environ **1,5 Go** d'espace disque libre pour le modèle de détection et les
   paquets NuGet (bien plus si vous installez aussi les moteurs de traduction
   locaux, voir plus bas).
+- [Node.js](https://nodejs.org/) **24 LTS** (ou 22.22.3 minimum) pour le front
+  Angular.
 
 ### 1. Cloner et restaurer
 
@@ -234,6 +236,27 @@ reste utilisable — seule la traduction n'est pas disponible.
 ```bash
 dotnet build ScanTrad.sln
 ```
+
+### 5. Lancer l'API et le front
+
+Dans un premier terminal, l'API (la base SQLite est créée au premier lancement) :
+
+```bash
+cd backend
+dotnet run --project ScanTrad.Api --launch-profile http
+```
+
+Dans un second terminal, le front :
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Le site est alors sur <http://localhost:4200>. En développement, le front
+redirige ses appels `/api/…` vers l'API (`http://localhost:5138`) grâce à
+`frontend/proxy.conf.json` ; la page d'accueil indique si l'API est bien jointe.
 
 ## Tests
 

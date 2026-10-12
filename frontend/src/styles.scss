@@ -1,0 +1,15 @@
+/* Styles globaux : uniquement ce qui vaut pour tout le site. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #1c1c1c;
+  color: #eee;
+  line-height: 1.5;
+}
