@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace ScanTrad.Pipeline
+namespace Tradia.Pipeline
 {
     /// <summary>
     /// Trouve l'emplacement d'un modèle non versionné, déclaré par sa clé dans

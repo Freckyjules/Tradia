@@ -1,8 +1,8 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.OrdreDeLecture;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.OrdreDeLecture;
 
-namespace ScanTrad.PipelineTests.OrdreDeLecture
+namespace Tradia.PipelineTests.OrdreDeLecture
 {
     /// <summary>
     /// Vérifie l'ordre que rend la règle globale : de haut en bas, puis dans le sens

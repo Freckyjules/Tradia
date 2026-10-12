@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Models
+namespace Tradia.Pipeline.Models
 {
     /// <summary>
     /// Une zone de texte trouvée sur une page : où elle se trouve, ce qu'elle dit,
@@ -68,7 +68,7 @@ namespace ScanTrad.Pipeline.Models
         /// Sert de point de départ à la réécriture pour choisir sa taille de police :
         /// le texte traduit part de la taille du texte d'origine, et ne rétrécit que
         /// s'il ne tient plus dans la bulle. Voir
-        /// <see cref="ScanTrad.Pipeline.Abstractions.IReecrivainDeTexte"/>.
+        /// <see cref="Tradia.Pipeline.Abstractions.IReecrivainDeTexte"/>.
         /// </para>
         /// </remarks>
         public double? HauteurDeLigne

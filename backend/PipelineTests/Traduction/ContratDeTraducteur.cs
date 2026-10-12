@@ -1,7 +1,7 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Traduction
+namespace Tradia.PipelineTests.Traduction
 {
     /// <summary>
     /// Les règles que <b>tout</b> traducteur doit respecter, quel que soit son moteur.

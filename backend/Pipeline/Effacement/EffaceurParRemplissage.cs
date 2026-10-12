@@ -1,8 +1,8 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Effacement
+namespace Tradia.Pipeline.Effacement
 {
     /// <summary>
     /// Efface le texte en remplissant l'intérieur de chaque bulle d'une couleur unie.

@@ -1,10 +1,10 @@
 using System.Text.Json;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Traduction.Moteurs
+namespace Tradia.Pipeline.Traduction.Moteurs
 {
     /// <summary>
     /// Ce que tout modèle de traduction encodeur-décodeur exporté en ONNX a en

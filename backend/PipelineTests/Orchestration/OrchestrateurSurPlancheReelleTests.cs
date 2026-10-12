@@ -1,15 +1,15 @@
 using System.Runtime.Versioning;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Cadrage;
-using ScanTrad.Pipeline.Effacement;
-using ScanTrad.Pipeline.Lecture;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.OrdreDeLecture;
-using ScanTrad.Pipeline.Orchestration;
-using ScanTrad.Pipeline.Reecriture;
-using ScanTrad.Pipeline.Traduction;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Cadrage;
+using Tradia.Pipeline.Effacement;
+using Tradia.Pipeline.Lecture;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.OrdreDeLecture;
+using Tradia.Pipeline.Orchestration;
+using Tradia.Pipeline.Reecriture;
+using Tradia.Pipeline.Traduction;
 
-namespace ScanTrad.PipelineTests.Orchestration
+namespace Tradia.PipelineTests.Orchestration
 {
     /// <summary>
     /// Le grand test : traite une vraie planche brute de bout en bout par le point

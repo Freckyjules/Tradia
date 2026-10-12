@@ -1,6 +1,6 @@
-# ScanTrad
+# Tradia
 
-**ScanTrad est un SaaS de traduction de mangas** : l'utilisateur dépose un
+**Tradia est un SaaS de traduction de mangas** : l'utilisateur dépose un
 chapitre sur le site, le fait traduire, et le lit directement dans le
 navigateur. Au cœur du service, un pipeline détecte les bulles de texte d'une
 planche, en traduit le contenu, efface le texte d'origine et y réécrit la
@@ -110,7 +110,7 @@ reste à écrire.
 ```
 backend/
 ├── Api/                  ASP.NET Core — expose le pipeline en service (à écrire)
-└── Pipeline/              ScanTrad.Pipeline — tout le traitement d'image
+└── Pipeline/              Tradia.Pipeline — tout le traitement d'image
     ├── Abstractions/      Contrats de chaque étape (ILecteurDePlanche, IAjusteurDeRectangle,
     │                      IOrdonnanceurDeZones, ITraducteur, IEffaceurDeTexte,
     │                      IReecrivainDeTexte, IOrchestrateurDePipeline)
@@ -199,9 +199,9 @@ données ni du stockage — l'API (à venir) n'aura qu'à construire les six
 ### 1. Cloner et restaurer
 
 ```bash
-git clone https://github.com/Freckyjules/ScanTrad.git
-cd ScanTrad/backend
-dotnet restore ScanTrad.sln
+git clone https://github.com/Freckyjules/Tradia.git
+cd Tradia/backend
+dotnet restore Tradia.sln
 ```
 
 ### 2. Déclarer l'emplacement des modèles
@@ -234,7 +234,7 @@ reste utilisable — seule la traduction n'est pas disponible.
 ### 4. Compiler
 
 ```bash
-dotnet build ScanTrad.sln
+dotnet build Tradia.sln
 ```
 
 ### 5. Lancer l'API et le front
@@ -243,7 +243,7 @@ Dans un premier terminal, l'API (la base SQLite est créée au premier lancement
 
 ```bash
 cd backend
-dotnet run --project ScanTrad.Api --launch-profile http
+dotnet run --project Tradia.Api --launch-profile http
 ```
 
 Dans un second terminal, le front :

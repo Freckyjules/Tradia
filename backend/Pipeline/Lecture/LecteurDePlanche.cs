@@ -1,10 +1,10 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 using Sdcb.PaddleOCR;
 using Sdcb.PaddleOCR.Models.Local;
 
-namespace ScanTrad.Pipeline.Lecture
+namespace Tradia.Pipeline.Lecture
 {
     /// <summary>
     /// Lit une planche en combinant trois outils locaux : comic-text-detector pour

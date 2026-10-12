@@ -1,4 +1,4 @@
-namespace ScanTrad.PipelineTests
+namespace Tradia.PipelineTests
 {
     /// <summary>
     /// Donne accès à la planche et au modèle dont se servent les tests d'intégration.
@@ -6,7 +6,7 @@ namespace ScanTrad.PipelineTests
     /// <remarks>
     /// La planche est recopiée à côté du binaire de test par le fichier projet. Le
     /// modèle, lui, pèse une centaine de mégaoctets et n'est pas versionné : sa
-    /// localisation passe par <see cref="ScanTrad.Pipeline.LocalisateurDeModele"/>,
+    /// localisation passe par <see cref="Tradia.Pipeline.LocalisateurDeModele"/>,
     /// la même que celle utilisée pour les modèles de traduction.
     /// </remarks>
     public static class PlancheDEssai
@@ -47,7 +47,7 @@ namespace ScanTrad.PipelineTests
         /// </exception>
         public static string TrouverLeModele()
         {
-            return ScanTrad.Pipeline.LocalisateurDeModele.Localiser("detecteur");
+            return Tradia.Pipeline.LocalisateurDeModele.Localiser("detecteur");
         }
     }
 }

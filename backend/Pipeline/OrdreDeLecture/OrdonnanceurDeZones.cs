@@ -1,7 +1,7 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.OrdreDeLecture
+namespace Tradia.Pipeline.OrdreDeLecture
 {
     /// <summary>
     /// Ordonne les blocs d'une planche par bandes horizontales : on descend de bande

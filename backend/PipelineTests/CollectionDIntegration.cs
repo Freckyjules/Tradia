@@ -1,4 +1,4 @@
-namespace ScanTrad.PipelineTests
+namespace Tradia.PipelineTests
 {
     /// <summary>
     /// Regroupe les tests d'intégration pour qu'ils s'exécutent les uns après les

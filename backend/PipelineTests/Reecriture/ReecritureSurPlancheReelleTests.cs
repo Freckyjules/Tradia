@@ -1,13 +1,13 @@
 using System.Runtime.Versioning;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Cadrage;
-using ScanTrad.Pipeline.Effacement;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.OrdreDeLecture;
-using ScanTrad.Pipeline.Reecriture;
-using ScanTrad.Pipeline.Traduction;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Cadrage;
+using Tradia.Pipeline.Effacement;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.OrdreDeLecture;
+using Tradia.Pipeline.Reecriture;
+using Tradia.Pipeline.Traduction;
 
-namespace ScanTrad.PipelineTests.Reecriture
+namespace Tradia.PipelineTests.Reecriture
 {
     /// <summary>
     /// Enchaîne lecture, cadrage, ordre de lecture, traduction, effacement et

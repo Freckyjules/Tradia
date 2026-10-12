@@ -1,8 +1,8 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Lecture;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Lecture;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests
+namespace Tradia.PipelineTests
 {
     /// <summary>
     /// Lit la planche d'essai une seule fois et partage le résultat entre tous les

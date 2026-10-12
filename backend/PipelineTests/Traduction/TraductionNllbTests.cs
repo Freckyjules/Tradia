@@ -1,9 +1,9 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.Traduction;
-using ScanTrad.Pipeline.Traduction.Moteurs.Nllb;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.Traduction;
+using Tradia.Pipeline.Traduction.Moteurs.Nllb;
 
-namespace ScanTrad.PipelineTests.Traduction
+namespace Tradia.PipelineTests.Traduction
 {
     /// <summary>
     /// Éprouve le moteur NLLB-200 réel, modèle chargé.

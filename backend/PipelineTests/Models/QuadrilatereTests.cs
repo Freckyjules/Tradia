@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Models
+namespace Tradia.PipelineTests.Models
 {
     /// <summary>
     /// Vérifie la géométrie d'un quadrilatère : dimensions, centre et inclinaison.

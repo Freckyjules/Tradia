@@ -1,8 +1,8 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Cadrage
+namespace Tradia.Pipeline.Cadrage
 {
     /// <summary>
     /// Maximise le rectangle d'une zone en rasterisant sa bulle en masque binaire, puis

@@ -1,10 +1,10 @@
 using System.Diagnostics;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.OrdreDeLecture;
-using ScanTrad.Pipeline.Traduction;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.OrdreDeLecture;
+using Tradia.Pipeline.Traduction;
 
-namespace ScanTrad.PipelineTests.Traduction
+namespace Tradia.PipelineTests.Traduction
 {
     /// <summary>
     /// Enchaîne lecture, ordre de lecture et traduction sur une vraie planche, et

@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Lecture
+namespace Tradia.PipelineTests.Lecture
 {
     /// <summary>
     /// Vérifie ce que la lecture d'une vraie planche produit.

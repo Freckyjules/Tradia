@@ -1,8 +1,8 @@
-using ScanTrad.Pipeline.Cadrage;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.OrdreDeLecture;
+using Tradia.Pipeline.Cadrage;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.OrdreDeLecture;
 
-namespace ScanTrad.PipelineTests.OrdreDeLecture
+namespace Tradia.PipelineTests.OrdreDeLecture
 {
     /// <summary>
     /// Met l'ordre de lecture à l'épreuve sur une vraie planche, et affiche le

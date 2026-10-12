@@ -1,6 +1,6 @@
 using Microsoft.ML.OnnxRuntime.Tensors;
 
-namespace ScanTrad.Pipeline.Traduction.Moteurs
+namespace Tradia.Pipeline.Traduction.Moteurs
 {
     /// <summary>
     /// Une hypothèse de traduction en cours de construction, dans la recherche en

@@ -1,8 +1,8 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Cadrage;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Cadrage;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Cadrage
+namespace Tradia.PipelineTests.Cadrage
 {
     /// <summary>
     /// Maximise les rectangles d'une vraie planche déjà lue, et attache un aperçu

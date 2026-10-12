@@ -1,10 +1,10 @@
 using System.Runtime.Versioning;
 using OpenCvSharp;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.Reecriture;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.Reecriture;
 
-namespace ScanTrad.PipelineTests.Reecriture
+namespace Tradia.PipelineTests.Reecriture
 {
     /// <summary>
     /// Vérifie la réécriture du texte traduit sur une image fabriquée pour l'occasion.

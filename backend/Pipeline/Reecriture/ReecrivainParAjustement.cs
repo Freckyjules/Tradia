@@ -2,10 +2,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Reecriture
+namespace Tradia.Pipeline.Reecriture
 {
     /// <summary>
     /// Réécrit le texte traduit en partant de la taille du texte d'origine, et ne la

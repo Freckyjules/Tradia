@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>ScanTrad.Pipeline</RootNamespace>
-    <AssemblyName>ScanTrad.Pipeline</AssemblyName>
+    <RootNamespace>Tradia.Pipeline</RootNamespace>
+    <AssemblyName>Tradia.Pipeline</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

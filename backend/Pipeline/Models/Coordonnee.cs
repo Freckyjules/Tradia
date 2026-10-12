@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Models
+namespace Tradia.Pipeline.Models
 {
     /// <summary>
     /// Une coordonnée dans l'image, en pixels. L'origine est le coin haut gauche,

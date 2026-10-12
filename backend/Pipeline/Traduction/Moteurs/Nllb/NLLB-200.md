@@ -60,7 +60,7 @@ NLLB s'en sort seul, et l'ajouter ici serait du bruit.
 
 ## Ce qui est sur la machine
 
-`E:\ScanTrad-modeles\nllb-200-distilled-600M` — **6,9 Go**, non versionné.
+`E:\Tradia-modeles\nllb-200-distilled-600M` — **6,9 Go**, non versionné.
 
 **Hors du dépôt, et ce n'est pas un choix esthétique** : il ne restait que 3,2 Go
 libres sur `C:`. Le chemin est écrit en dur dans `ChoixDuTraducteur`, ce qui lie
@@ -84,10 +84,10 @@ Même environnement que pour OPUS-MT — voir son mémo pour le remonter. On red
 le cache Hugging Face vers `E:` pour ne rien écrire sur le disque système.
 
 ```powershell
-$env:HF_HOME = "E:\ScanTrad-modeles\hf-cache"
+$env:HF_HOME = "E:\Tradia-modeles\hf-cache"
 .\.venv-export\Scripts\optimum-cli.exe export onnx `
   --model facebook/nllb-200-distilled-600M `
-  E:\ScanTrad-modeles\nllb-200-distilled-600M\
+  E:\Tradia-modeles\nllb-200-distilled-600M\
 ```
 
 ### L'export « échoue », et ce n'est pas grave
