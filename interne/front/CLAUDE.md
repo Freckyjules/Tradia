@@ -74,10 +74,14 @@ core/       ──►  (rien d'autre dans app/)
 - En développement, le front appelle toujours des URL relatives en `/api/…` ; `proxy.conf.json` les redirige vers l'API (`http://localhost:5138`). Pas d'URL d'API écrite en dur dans le code, pas de configuration CORS nécessaire.
 - Les erreurs de l'API arrivent au format `ProblemDetails`, avec un champ `code` stable (ex. `User.UsernameTaken`). Le front s'appuie sur ce `code`, jamais sur le texte du message, pour décider quoi afficher.
 
+## Choix techniques
+
+- **Angular 22**, composants standalone, sans `zone.js` (zoneless), sans rendu serveur.
+- **Noms en français** pour les features, les composants et les services (`accueil`, `EnTete`, `EtatApi`), comme le backlog et le pipeline ; l'API, elle, est nommée en anglais.
+- **Fichiers au style 2025** d'Angular : `accueil-page.ts` et la classe `AccueilPage`, sans suffixe `.component`.
+- **SCSS** pour les feuilles de style.
+- **Tests avec Vitest** (`npm test`).
+
 ## À décider
 
-Ces choix ne sont pas encore arrêtés ; les inscrire ici une fois tranchés.
-
-- **Langue des noms de features** : en français ci-dessus (`accueil`, `lecteur`, `depot`), comme le backlog et le pipeline ; l'API, elle, est nommée en anglais.
-- **Feuilles de style** : CSS ou SCSS.
-- **Bibliothèque de composants** : Angular Material ou aucune.
+- **Bibliothèque de composants** : Angular Material ou aucune. Aucune pour l'instant.
