@@ -1,9 +1,9 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.Traduction;
-using ScanTrad.Pipeline.Traduction.Moteurs.OpusMt;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.Traduction;
+using Tradia.Pipeline.Traduction.Moteurs.OpusMt;
 
-namespace ScanTrad.PipelineTests.Traduction
+namespace Tradia.PipelineTests.Traduction
 {
     /// <summary>
     /// Éprouve le moteur OPUS-MT réel, modèle chargé.

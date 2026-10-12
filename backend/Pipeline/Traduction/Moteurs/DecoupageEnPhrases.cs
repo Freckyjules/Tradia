@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Traduction.Moteurs
+namespace Tradia.Pipeline.Traduction.Moteurs
 {
     /// <summary>
     /// Découpe un texte en phrases, pour les modèles qui n'en traitent qu'une à la

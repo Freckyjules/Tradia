@@ -1,7 +1,7 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Lecture
+namespace Tradia.Pipeline.Lecture
 {
     /// <summary>
     /// Retrouve le contour de la bulle qui entoure un bloc de texte, par diffusion

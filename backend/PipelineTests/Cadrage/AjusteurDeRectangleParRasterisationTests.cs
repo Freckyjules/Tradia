@@ -1,8 +1,8 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Cadrage;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Cadrage;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Cadrage
+namespace Tradia.PipelineTests.Cadrage
 {
     /// <summary>
     /// Vérifie la maximisation du rectangle sur des contours de bulle écrits à la

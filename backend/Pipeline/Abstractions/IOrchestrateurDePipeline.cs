@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Abstractions
+namespace Tradia.Pipeline.Abstractions
 {
     /// <summary>
     /// Enchaîne les six étapes du pipeline sur une planche brute et rend la planche

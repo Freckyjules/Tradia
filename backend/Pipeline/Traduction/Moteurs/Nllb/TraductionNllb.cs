@@ -3,7 +3,7 @@ using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using Microsoft.ML.Tokenizers;
 
-namespace ScanTrad.Pipeline.Traduction.Moteurs.Nllb
+namespace Tradia.Pipeline.Traduction.Moteurs.Nllb
 {
     /// <summary>
     /// Traduit avec NLLB-200 exporté en ONNX, entièrement en local.

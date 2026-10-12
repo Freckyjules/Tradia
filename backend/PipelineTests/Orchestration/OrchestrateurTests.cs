@@ -1,8 +1,8 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
-using ScanTrad.Pipeline.Orchestration;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
+using Tradia.Pipeline.Orchestration;
 
-namespace ScanTrad.PipelineTests.Orchestration
+namespace Tradia.PipelineTests.Orchestration
 {
     /// <summary>
     /// Vérifie l'enchaînement des six étapes avec des étapes factices : aucun modèle

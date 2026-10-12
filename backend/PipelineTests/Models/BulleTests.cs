@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Models
+namespace Tradia.PipelineTests.Models
 {
     /// <summary>
     /// Vérifie le contour d'une bulle : sa validité, son centre, et le test

@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Abstractions
+namespace Tradia.Pipeline.Abstractions
 {
     /// <summary>
     /// Réécrit le texte traduit dans les bulles nettoyées d'une planche. Dernière

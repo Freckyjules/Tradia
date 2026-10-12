@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Traduction.Moteurs;
+using Tradia.Pipeline.Traduction.Moteurs;
 
-namespace ScanTrad.PipelineTests.Traduction
+namespace Tradia.PipelineTests.Traduction
 {
     /// <summary>
     /// Vérifie le découpage d'un texte en phrases.

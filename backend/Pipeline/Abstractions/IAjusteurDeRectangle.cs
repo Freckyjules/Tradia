@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Abstractions
+namespace Tradia.Pipeline.Abstractions
 {
     /// <summary>
     /// Agrandit le rectangle d'une zone jusqu'à la plus grande superficie qui tient

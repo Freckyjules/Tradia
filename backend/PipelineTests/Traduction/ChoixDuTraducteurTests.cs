@@ -1,7 +1,7 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Traduction;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Traduction;
 
-namespace ScanTrad.PipelineTests.Traduction
+namespace Tradia.PipelineTests.Traduction
 {
     /// <summary>
     /// Vérifie l'aiguillage entre les moteurs de traduction.

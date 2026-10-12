@@ -1,7 +1,7 @@
-using ScanTrad.Pipeline.Effacement;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Effacement;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Effacement
+namespace Tradia.PipelineTests.Effacement
 {
     /// <summary>
     /// Efface le texte d'une vraie planche et attache l'image nettoyée au test, pour

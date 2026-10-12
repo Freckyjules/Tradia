@@ -1,9 +1,9 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Effacement;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Effacement;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests.Effacement
+namespace Tradia.PipelineTests.Effacement
 {
     /// <summary>
     /// Vérifie le remplissage des bulles sur une image fabriquée pour l'occasion.

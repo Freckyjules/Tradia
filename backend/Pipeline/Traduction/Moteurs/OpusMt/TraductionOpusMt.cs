@@ -4,7 +4,7 @@ using Microsoft.ML.OnnxRuntime.Tensors;
 using Microsoft.ML.Tokenizers;
 using System.Text.Json;
 
-namespace ScanTrad.Pipeline.Traduction.Moteurs.OpusMt
+namespace Tradia.Pipeline.Traduction.Moteurs.OpusMt
 {
     /// <summary>
     /// Traduit avec OPUS-MT exporté en ONNX, entièrement en local.

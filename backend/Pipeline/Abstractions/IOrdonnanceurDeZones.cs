@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Abstractions
+namespace Tradia.Pipeline.Abstractions
 {
     /// <summary>
     /// Met les blocs de texte d'une planche dans l'ordre où un lecteur les lit.

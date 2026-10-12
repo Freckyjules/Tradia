@@ -1,7 +1,7 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Orchestration
+namespace Tradia.Pipeline.Orchestration
 {
     /// <summary>
     /// Enchaîne six étapes déjà construites, dans l'ordre fixe du pipeline.

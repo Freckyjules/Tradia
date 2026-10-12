@@ -1,7 +1,7 @@
 using OpenCvSharp;
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.PipelineTests
+namespace Tradia.PipelineTests
 {
     /// <summary>
     /// Dessine sur une planche ce que le pipeline y a trouvé, et attache l'image au

@@ -1,8 +1,8 @@
-using ScanTrad.Pipeline.Abstractions;
-using ScanTrad.Pipeline.Traduction.Moteurs.Nllb;
-using ScanTrad.Pipeline.Traduction.Moteurs.OpusMt;
+using Tradia.Pipeline.Abstractions;
+using Tradia.Pipeline.Traduction.Moteurs.Nllb;
+using Tradia.Pipeline.Traduction.Moteurs.OpusMt;
 
-namespace ScanTrad.Pipeline.Traduction
+namespace Tradia.Pipeline.Traduction
 {
     /// <summary>
     /// Construit le traducteur correspondant au moteur demandé.

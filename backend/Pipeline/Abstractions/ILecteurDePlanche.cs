@@ -1,6 +1,6 @@
-using ScanTrad.Pipeline.Models;
+using Tradia.Pipeline.Models;
 
-namespace ScanTrad.Pipeline.Abstractions
+namespace Tradia.Pipeline.Abstractions
 {
     /// <summary>
     /// Localise et lit le texte présent sur une planche. Première étape du pipeline :

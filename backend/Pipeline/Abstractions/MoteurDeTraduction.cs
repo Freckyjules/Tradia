@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Abstractions
+namespace Tradia.Pipeline.Abstractions
 {
     /// <summary>
     /// Les moteurs de traduction entre lesquels l'utilisateur peut choisir.

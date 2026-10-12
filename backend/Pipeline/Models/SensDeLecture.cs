@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Models
+namespace Tradia.Pipeline.Models
 {
     /// <summary>
     /// Sens dans lequel se parcourent les cases et les bulles d'une planche.

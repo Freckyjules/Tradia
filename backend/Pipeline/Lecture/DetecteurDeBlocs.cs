@@ -2,7 +2,7 @@ using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using OpenCvSharp;
 
-namespace ScanTrad.Pipeline.Lecture
+namespace Tradia.Pipeline.Lecture
 {
     /// <summary>
     /// Localise les blocs de dialogue d'une planche avec le modèle

@@ -1,6 +1,6 @@
-# ScanTrad — front
+# Tradia — front
 
-Le site de ScanTrad, en Angular 22. Il a été généré avec [Angular CLI](https://github.com/angular/angular-cli) 22.2.0.
+Le site de Tradia, en Angular 22. Il a été généré avec [Angular CLI](https://github.com/angular/angular-cli) 22.2.0.
 
 La structure des dossiers et les conventions sont décrites dans
 [`interne/front/CLAUDE.md`](../interne/front/CLAUDE.md).
@@ -31,7 +31,7 @@ donc la lancer à côté, dans un autre terminal.
 
 ```bash
 cd ../backend
-dotnet run --project ScanTrad.Api --launch-profile http
+dotnet run --project Tradia.Api --launch-profile http
 ```
 
 La page d'accueil indique si l'API est bien jointe.

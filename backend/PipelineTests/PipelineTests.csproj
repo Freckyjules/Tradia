@@ -5,8 +5,8 @@
     <OutputType>Exe</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>ScanTrad.PipelineTests</RootNamespace>
-    <AssemblyName>ScanTrad.PipelineTests</AssemblyName>
+    <RootNamespace>Tradia.PipelineTests</RootNamespace>
+    <AssemblyName>Tradia.PipelineTests</AssemblyName>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>

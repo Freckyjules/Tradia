@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Models
+namespace Tradia.Pipeline.Models
 {
     /// <summary>
     /// Les quatre coins délimitant un texte sur la page. Les coins sont

@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Models
+namespace Tradia.Pipeline.Models
 {
     /// <summary>
     /// Une couleur opaque, décrite par ses trois composantes de 0 à 255.

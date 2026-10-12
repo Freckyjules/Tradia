@@ -1,4 +1,4 @@
-namespace ScanTrad.Pipeline.Models
+namespace Tradia.Pipeline.Models
 {
     /// <summary>
     /// Une planche en cours de traitement : son image, son sens de lecture, et les

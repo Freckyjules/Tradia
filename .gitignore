@@ -63,7 +63,7 @@ appsettings.*.Local.json
 secrets.json
 
 ###############################################################################
-# ScanTrad : modeles IA
+# Tradia : modeles IA
 # Les poids ONNX (detection de texte, OCR, inpainting) pesent des dizaines
 # ou centaines de Mo. On ne les versionne pas : script de telechargement ou
 # Git LFS si vraiment necessaire.
@@ -85,7 +85,7 @@ secrets.json
 *.gguf
 
 ###############################################################################
-# ScanTrad : donnees utilisateur
+# Tradia : donnees utilisateur
 # Scans importes, images nettoyees (inpainting) et rendus finaux sont des
 # donnees de run, jamais du code source.
 ###############################################################################
