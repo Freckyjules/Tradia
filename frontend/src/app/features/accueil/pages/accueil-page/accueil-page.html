@@ -1,0 +1,16 @@
+<h1>Bienvenue sur ScanTrad</h1>
+<p>Déposez un manga, faites-le traduire, et lisez-le directement dans le navigateur.</p>
+
+<p class="etat-api">
+  @switch (apiJointe()) {
+    @case (true) {
+      <span class="ok">API connectée ✅</span>
+    }
+    @case (false) {
+      <span class="ko">API injoignable ❌</span>
+    }
+    @default {
+      <span>Connexion à l'API…</span>
+    }
+  }
+</p>
