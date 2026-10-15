@@ -1,0 +1,9 @@
+# Ne pas envoyer à Docker ce qu'il va recréer lui-même.
+node_modules
+dist
+.angular
+.vscode
+.git
+npm-debug.log
+Dockerfile
+.dockerignore
