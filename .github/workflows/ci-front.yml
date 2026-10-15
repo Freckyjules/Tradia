@@ -1,0 +1,48 @@
+# Vérification du front : compile et lance les tests unitaires à chaque PR
+# vers dev (travail courant) ou main (mise en production).
+name: CI front
+
+on:
+  pull_request:
+    branches: [dev, main]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/ci-front.yml"
+  workflow_dispatch:
+
+# Une nouvelle poussée sur la même PR annule l'exécution précédente, devenue inutile.
+concurrency:
+  group: ci-front-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verification:
+    name: Compilation et tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      # Même version de npm qu'en local (champ packageManager de package.json).
+      - name: Installation de npm 12
+        run: npm install -g npm@12.1.0
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Compilation
+        run: npm run build
+
+      - name: Tests unitaires
+        run: npx ng test --watch=false
