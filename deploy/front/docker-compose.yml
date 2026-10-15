@@ -1,0 +1,10 @@
+# Déploiement du front sur le Raspberry Pi, géré comme une stack Portainer.
+# L'image est construite et publiée par .github/workflows/deploy-front.yml.
+services:
+  tradia-front:
+    image: ghcr.io/freckyjules/tradia-front:latest
+    container_name: tradia-front
+    restart: unless-stopped
+    # Visible seulement depuis le Pi : c'est le tunnel Cloudflare qui l'expose sur Internet.
+    ports:
+      - "127.0.0.1:8080:8080"
