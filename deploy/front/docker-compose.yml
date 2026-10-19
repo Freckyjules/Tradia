@@ -8,3 +8,11 @@ services:
     # Visible seulement depuis le Pi : c'est le tunnel Cloudflare qui l'expose sur Internet.
     ports:
       - "127.0.0.1:8080:8080"
+    networks:
+      - tradia
+
+# Réseau partagé par le front et l'API, à créer une fois sur le Pi :
+#   docker network create tradia
+networks:
+  tradia:
+    external: true
