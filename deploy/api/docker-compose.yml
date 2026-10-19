@@ -13,6 +13,14 @@ services:
     # La base SQLite : sans ce volume, elle serait perdue à chaque mise à jour.
     volumes:
       - tradia-data:/data
+    networks:
+      - tradia
 
 volumes:
   tradia-data:
+
+# Réseau partagé par le front et l'API, à créer une fois sur le Pi :
+#   docker network create tradia
+networks:
+  tradia:
+    external: true
