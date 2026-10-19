@@ -1,0 +1,18 @@
+# Déploiement de l'API sur le Raspberry Pi, géré comme une stack Portainer.
+# L'image est construite et publiée par .github/workflows/deploy-api.yml.
+services:
+  tradia-api:
+    image: ghcr.io/freckyjules/tradia-api:latest
+    container_name: tradia-api
+    restart: unless-stopped
+    # Visible seulement depuis le Pi : c'est le tunnel Cloudflare qui l'expose sur Internet.
+    ports:
+      - "127.0.0.1:8081:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+    # La base SQLite : sans ce volume, elle serait perdue à chaque mise à jour.
+    volumes:
+      - tradia-data:/data
+
+volumes:
+  tradia-data:
