@@ -1,0 +1,13 @@
+# Le contexte de build de l'API est le dossier backend : on n'envoie à Docker
+# que ce dont l'API a besoin (pas le Pipeline, ses modèles ONNX ni les tests).
+Pipeline
+PipelineTests
+Tradia.UnitTests
+Tradia.IntegrationTests
+modeles
+TestResults
+**/bin
+**/obj
+**/*.db
+**/*.user
+modeles.local.json
