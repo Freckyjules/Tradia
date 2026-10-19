@@ -1,0 +1,41 @@
+# Vérification de l'API : compile et lance les tests unitaires et d'intégration
+# à chaque PR vers dev (travail courant) ou main (mise en production).
+# Le Pipeline et ses tests (Windows, modèles ONNX) ne sont pas concernés.
+name: CI API
+
+on:
+  pull_request:
+    branches: [dev, main]
+    paths:
+      - "backend/Tradia.*/**"
+      - "backend/global.json"
+      - ".github/workflows/ci-api.yml"
+  workflow_dispatch:
+
+# Une nouvelle poussée sur la même PR annule l'exécution précédente, devenue inutile.
+concurrency:
+  group: ci-api-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verification:
+    name: Compilation et tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Tests unitaires
+        run: dotnet test --project Tradia.UnitTests
+
+      - name: Tests d'intégration
+        run: dotnet test --project Tradia.IntegrationTests
