@@ -56,4 +56,4 @@ jobs:
       - name: Mise à jour du Pi
         run: curl --fail --silent --show-error --max-time 60 -X POST "$DEPLOY_WEBHOOK_URL"
         env:
-          DEPLOY_WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+          DEPLOY_WEBHOOK_URL: ${{ secrets.DEPLOY_FRONT_WEBHOOK_URL }}
