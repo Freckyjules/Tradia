@@ -10,5 +10,9 @@ export const routes: Routes = [
     path: '',
     loadChildren: () => import('./features/accueil/accueil.routes').then((m) => m.ACCUEIL_ROUTES),
   },
+  {
+    path: 'compte',
+    loadChildren: () => import('./features/compte/compte.routes').then((m) => m.COMPTE_ROUTES),
+  },
   { path: '**', redirectTo: '' },
 ];
