@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter, map } from 'rxjs';
@@ -6,7 +6,7 @@ import { Session } from '../../auth/session';
 
 /**
  * En-tête du site : le nom, et la navigation vers chaque partie. Il montre aussi qui est
- * connecté, ou propose de se connecter.
+ * connecté, avec de quoi se déconnecter, ou propose de se connecter.
  */
 @Component({
   selector: 'app-en-tete',
@@ -27,4 +27,28 @@ export class EnTete {
     ),
     { initialValue: this.router.url },
   );
+
+  protected readonly deconnexionEnCours = signal(false);
+
+  /** `true` si la dernière déconnexion a échoué : l'utilisateur est alors toujours connecté. */
+  protected readonly deconnexionEchouee = signal(false);
+
+  /** Déconnecte l'utilisateur, puis l'envoie sur la page de connexion. */
+  protected async deconnecter(): Promise<void> {
+    if (this.deconnexionEnCours()) {
+      return;
+    }
+
+    this.deconnexionEnCours.set(true);
+    this.deconnexionEchouee.set(false);
+
+    const deconnecte = await this.session.deconnecter();
+
+    this.deconnexionEnCours.set(false);
+    if (deconnecte) {
+      await this.router.navigateByUrl('/compte/connexion');
+    } else {
+      this.deconnexionEchouee.set(true);
+    }
+  }
 }

@@ -76,6 +76,21 @@ namespace Tradia.Api.Controllers
         }
 
         /// <summary>
+        /// Déconnecte l'utilisateur : le cookie de session est effacé, et il redevient visiteur.
+        /// Sans effet, mais sans erreur, si personne n'est connecté.
+        /// </summary>
+        /// <returns> 204, que l'utilisateur ait été connecté ou non. </returns>
+        [HttpPost("logout")]
+        [EndpointSummary("Déconnecte l'utilisateur.")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutUserAsync();
+
+            return NoContent();
+        }
+
+        /// <summary>
         /// Rend l'utilisateur actuellement connecté : c'est ainsi que le front sait,
         /// au chargement de la page, si la session est toujours ouverte.
         /// </summary>

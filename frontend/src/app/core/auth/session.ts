@@ -45,4 +45,22 @@ export class Session {
   effacer(): void {
     this.utilisateurCourant.set(null);
   }
+
+  /**
+   * Déconnecte l'utilisateur avec `POST /api/user/logout` : seule l'API peut effacer le
+   * cookie de session, qui est illisible pour le site (`HttpOnly`).
+   *
+   * @returns `true` si l'utilisateur est déconnecté ; `false` si l'API n'a pas répondu, auquel
+   * cas il reste connecté : mieux vaut le dire que lui faire croire qu'il est parti.
+   */
+  async deconnecter(): Promise<boolean> {
+    try {
+      await firstValueFrom(this.http.post<void>('/api/user/logout', null));
+    } catch {
+      return false;
+    }
+
+    this.effacer();
+    return true;
+  }
 }
