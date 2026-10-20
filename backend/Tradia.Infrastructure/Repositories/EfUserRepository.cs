@@ -40,5 +40,15 @@ namespace Tradia.Infrastructure.Repositories
 
             return await context.Users.AnyAsync(u => u.NormalizedUsername == normalizedUsername);
         }
+
+        /// <inheritdoc/>
+        public async Task<User?> GetByUsernameAsync(string username)
+        {
+            string normalizedUsername = User.NormalizeUsername(username);
+
+            return await context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.NormalizedUsername == normalizedUsername);
+        }
     }
 }

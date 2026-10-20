@@ -34,5 +34,13 @@ namespace Tradia.Application.Users
         public static readonly Error PasswordTooLong = Error.Validation(
             "User.PasswordTooLong",
             "Le mot de passe ne doit pas dépasser 128 caractères.");
+
+        /// <summary>
+        /// Le nom d'utilisateur ou le mot de passe est incorrect. Un seul message pour
+        /// les deux cas : il ne doit pas révéler lequel des deux est faux.
+        /// </summary>
+        public static readonly Error InvalidCredentials = Error.Unauthorized(
+            "User.InvalidCredentials",
+            "Nom d'utilisateur ou mot de passe incorrect");
     }
 }

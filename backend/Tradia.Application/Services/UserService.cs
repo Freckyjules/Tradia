@@ -65,5 +65,29 @@ namespace Tradia.Application.Services
 
             return Result.Success();
         }
+
+        /// <inheritdoc/>
+        public async Task<Result<AuthenticatedUserDto>> LoginAsync(LoginRequestDto request)
+        {
+            if (request.Password.Length > LongueurMaximaleDuMotDePasse)
+            {
+                return UserErrors.InvalidCredentials;
+            }
+
+            User? user = await userRepository.GetByUsernameAsync(request.Username);
+
+            if (user is null)
+            {
+                passwordHasher.SimulateVerification(request.Password);
+                return UserErrors.InvalidCredentials;
+            }
+
+            if (!passwordHasher.VerifyPassword(user.PasswordHash, request.Password))
+            {
+                return UserErrors.InvalidCredentials;
+            }
+
+            return new AuthenticatedUserDto { Id = user.Id, Username = user.Username };
+        }
     }
 }
