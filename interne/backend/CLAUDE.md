@@ -5,25 +5,9 @@ Ce dossier ne contient que du C#. Ces règles s'appliquent à **toutes les class
 1. **Nommage** : le champ privé (l'attribut) en `camelCase` **minuscule**, la propriété publique en `PascalCase` **majuscule**.
 2. **Initialisation dans le constructeur** : déclarer les champs nus (`private string name;`) et les initialiser dans le **constructeur**, jamais à la déclaration.
 3. **Documentation XML** : documenter avec `/// <summary>` **uniquement les membres `public`** (classe, constructeur, propriétés, méthodes) — **pas** les champs `private`, sauf s'il s'agit d'un privé « technique » (non trivial). Pour les méthodes, mettre tout ce qu'il faut : `<summary>`, un `<param>` par paramètre (entrées), `<returns>` (sortie) et un `<exception>` par exception possible. **Toute la documentation (les `summary`) est rédigée en français.**
+4. **Pas de régions** : ce projet n'utilise **pas** les `#region` (la skill `csharp-regions` ne s'applique pas, sauf demande explicite). On range simplement les membres **dans cet ordre** : constantes (`const`, `static readonly`), attributs, propriétés, constructeurs, méthodes publiques, méthodes privées.
 
-4. **Régions** : structurer chaque classe avec des `#region`, **dans cet ordre**, en omettant simplement celles qui seraient vides. La liste est **fermée** : pas d'autre nom de région, pas de région inventée pour un cas particulier, et pas de région imbriquée.
-
-| Région | Ce qu'elle contient |
-|---|---|
-| `Constantes` | les `const` et les `static readonly` |
-| `Attributs` | les variables privées de la classe |
-| `Propriétés` | toutes les propriétés, y compris celles qui sont calculées |
-| `Constructeurs` | tous les constructeurs |
-| `Méthodes` | les méthodes publiques |
-| `Méthodes privées` | les méthodes d'aide internes |
-
-Une classe qui n'aurait que des champs et des propriétés n'écrit donc que `Attributs`, `Propriétés` et `Constructeurs`.
-
-**Deux exceptions, sans aucune région :**
-- les **interfaces**, qui n'ont ni champ ni constructeur ;
-- les **classes de test**, qui ne contiennent que des méthodes — il n'y a rien à séparer, et une région unique enveloppant tout le fichier n'apporte que du bruit.
-
-Exemple de référence (illustre les 5 règles) :
+Exemple de référence (illustre les 4 règles) :
 
 ```csharp
 /// <summary>
@@ -31,13 +15,7 @@ Exemple de référence (illustre les 5 règles) :
 /// </summary>
 public class Artist
 {
-    #region Attributs
-
     private string name;
-
-    #endregion
-
-    #region Propriétés
 
     /// <summary>
     /// Nom de l'artiste.
@@ -48,10 +26,6 @@ public class Artist
         set { name = value; }
     }
 
-    #endregion
-
-    #region Constructeurs
-
     /// <summary>
     /// Initialise un nouvel artiste avec des valeurs par défaut.
     /// </summary>
@@ -59,7 +33,5 @@ public class Artist
     {
         name = string.Empty;
     }
-
-    #endregion
 }
 ```
