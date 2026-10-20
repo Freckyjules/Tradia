@@ -18,5 +18,15 @@ namespace Tradia.Application.Interfaces
         /// d'utilisateur invalide ou déjà pris.
         /// </returns>
         Task<Result> RegisterUserAsync(RegisterRequestDto request);
+
+        /// <summary>
+        /// Vérifie les identifiants d'un utilisateur. Les majuscules du nom sont ignorées.
+        /// </summary>
+        /// <param name="request">Le nom d'utilisateur et le mot de passe saisis.</param>
+        /// <returns>
+        /// L'utilisateur identifié, ou un échec <see cref="Users.UserErrors.InvalidCredentials"/>
+        /// qui ne dit pas lequel du nom ou du mot de passe est faux.
+        /// </returns>
+        Task<Result<AuthenticatedUserDto>> LoginAsync(LoginRequestDto request);
     }
 }

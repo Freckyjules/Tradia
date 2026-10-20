@@ -21,5 +21,12 @@ namespace Tradia.Domain.Repositories
         /// <param name="username"> Le nom d'utilisateur à vérifier. </param>
         /// <returns> true si l'utilisateur existe, false sinon. </returns>
         Task<bool> ExistsByUsernameAsync(string username);
+
+        /// <summary>
+        /// Retrouve un utilisateur par son nom d'utilisateur, sans tenir compte des majuscules.
+        /// </summary>
+        /// <param name="username"> Le nom d'utilisateur recherché. </param>
+        /// <returns> L'utilisateur, ou <c>null</c> s'il n'existe pas. </returns>
+        Task<User?> GetByUsernameAsync(string username);
     }
 }

@@ -13,18 +13,12 @@ namespace Tradia.Pipeline.Orchestration
     /// </remarks>
     public class Orchestrateur : IOrchestrateurDePipeline
     {
-        #region Attributs
-
         private readonly ILecteurDePlanche lecteur;
         private readonly IAjusteurDeRectangle ajusteur;
         private readonly IOrdonnanceurDeZones ordonnanceur;
         private readonly ITraducteur traducteur;
         private readonly IEffaceurDeTexte effaceur;
         private readonly IReecrivainDeTexte reecrivain;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise l'orchestrateur avec les six étapes qu'il enchaînera.
@@ -54,10 +48,6 @@ namespace Tradia.Pipeline.Orchestration
             this.reecrivain = reecrivain ?? throw new ArgumentNullException(nameof(reecrivain));
         }
 
-        #endregion
-
-        #region Méthodes
-
         /// <inheritdoc />
         public async Task<Planche> TraiterAsync(Planche planche, CancellationToken jetonAnnulation = default)
         {
@@ -76,7 +66,5 @@ namespace Tradia.Pipeline.Orchestration
 
             return reecrivain.Reecrire(nettoyee);
         }
-
-        #endregion
     }
 }

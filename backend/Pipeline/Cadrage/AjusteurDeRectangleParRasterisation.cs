@@ -37,8 +37,6 @@ namespace Tradia.Pipeline.Cadrage
     /// </remarks>
     public class AjusteurDeRectangleParRasterisation : IAjusteurDeRectangle
     {
-        #region Méthodes
-
         /// <inheritdoc />
         public Planche Ajuster(Planche planche)
         {
@@ -66,10 +64,6 @@ namespace Tradia.Pipeline.Cadrage
 
             return planche.AvecZones(planche.Zones);
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private static Quadrilatere? RectangleMaximal(Bulle bulle)
         {
@@ -177,7 +171,5 @@ namespace Tradia.Pipeline.Cadrage
 
             return (meilleureSurface, meilleurGauche, meilleureLargeur, meilleureHauteur);
         }
-
-        #endregion
     }
 }

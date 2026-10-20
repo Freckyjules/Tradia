@@ -24,8 +24,6 @@ namespace Tradia.Pipeline.Lecture
     /// </remarks>
     public static class ChercheurDeBulle
     {
-        #region Constantes
-
         /// <summary>
         /// Écart de luminosité toléré par la diffusion. Mesuré sans effet entre 6 et
         /// 28 : les fuites ne passent pas par un trait pâle, inutile de le régler
@@ -59,10 +57,6 @@ namespace Tradia.Pipeline.Lecture
         /// Rayons d'érosion essayés, du plus doux au plus brutal.
         /// </summary>
         private static readonly int[] Rayons = { 3, 5, 7, 10, 14 };
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Cherche le contour de la bulle entourant un bloc de texte, et mesure au
@@ -124,10 +118,6 @@ namespace Tradia.Pipeline.Lecture
 
             return new Bulle(contour.Select(point => new Coordonnee(point.X, point.Y)));
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private static Point[]? ChoisirLeContour(Mat brut, Rect bloc)
         {
@@ -364,7 +354,5 @@ namespace Tradia.Pipeline.Lecture
             return englobant.Width >= bloc.Width * CouvertureMinimaleDuBloc
                 && englobant.Height >= bloc.Height * CouvertureMinimaleDuBloc;
         }
-
-        #endregion
     }
 }

@@ -8,13 +8,13 @@ namespace Tradia.Infrastructure.Security
     /// </summary>
     public class IdentityPasswordHasher : IPasswordHasher
     {
-        #region Attributs
-
         private readonly PasswordHasher<object> inner;
 
-        #endregion
-
-        #region Constructeurs
+        /// <summary>
+        /// Hash d'un mot de passe jeté, calculé une fois : sert à vérifier un mot de passe
+        /// quand le compte n'existe pas, pour que le temps de réponse reste le même.
+        /// </summary>
+        private readonly string dummyHash;
 
         /// <summary>
         /// Initialise le service sur le hacheur d'ASP.NET Core Identity.
@@ -22,11 +22,8 @@ namespace Tradia.Infrastructure.Security
         public IdentityPasswordHasher()
         {
             inner = new PasswordHasher<object>();
+            dummyHash = inner.HashPassword(user: null!, Guid.NewGuid().ToString("N"));
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc />
         public string HashPassword(string password)
@@ -34,6 +31,17 @@ namespace Tradia.Infrastructure.Security
             return inner.HashPassword(user: null!, password);
         }
 
-        #endregion
+        /// <inheritdoc />
+        public bool VerifyPassword(string passwordHash, string password)
+        {
+            PasswordVerificationResult result = inner.VerifyHashedPassword(user: null!, passwordHash, password);
+            return result != PasswordVerificationResult.Failed;
+        }
+
+        /// <inheritdoc />
+        public void SimulateVerification(string password)
+        {
+            inner.VerifyHashedPassword(user: null!, dummyHash, password);
+        }
     }
 }

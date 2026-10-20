@@ -12,22 +12,12 @@ namespace Tradia.Pipeline.Models
     /// </remarks>
     public class Couleur
     {
-        #region Constantes
-
         private const int Minimum = 0;
         private const int Maximum = 255;
-
-        #endregion
-
-        #region Attributs
 
         private int rouge;
         private int vert;
         private int bleu;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Composante rouge, de 0 à 255.
@@ -55,10 +45,6 @@ namespace Tradia.Pipeline.Models
             get { return bleu; }
             set { bleu = value; }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise un noir opaque.
@@ -90,10 +76,6 @@ namespace Tradia.Pipeline.Models
             this.bleu = bleu;
         }
 
-        #endregion
-
-        #region Méthodes
-
         /// <summary>
         /// Décrit la couleur par ses composantes puis par son code hexadécimal, la
         /// forme sous laquelle le front la manipulera.
@@ -104,10 +86,6 @@ namespace Tradia.Pipeline.Models
             return FormattableString.Invariant($"RVB({rouge}, {vert}, {bleu}) #{rouge:X2}{vert:X2}{bleu:X2}");
         }
 
-        #endregion
-
-        #region Méthodes privées
-
         private static void Verifier(int composante, string nom)
         {
             if (composante < Minimum || composante > Maximum)
@@ -116,7 +94,5 @@ namespace Tradia.Pipeline.Models
                     nom, composante, "Une composante de couleur se situe entre 0 et 255.");
             }
         }
-
-        #endregion
     }
 }

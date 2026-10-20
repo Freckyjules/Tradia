@@ -24,14 +24,8 @@ namespace Tradia.PipelineTests
     /// </remarks>
     public class LectureDeLaPlancheDEssai : IAsyncLifetime
     {
-        #region Attributs
-
         private Planche originale;
         private Planche lue;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// La planche telle qu'elle est arrivée, avant toute lecture.
@@ -58,10 +52,6 @@ namespace Tradia.PipelineTests
             get { return lue.Zones; }
         }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Initialise le partage. La lecture n'a lieu qu'au moment où xUnit appelle
         /// <see cref="InitializeAsync"/>.
@@ -71,10 +61,6 @@ namespace Tradia.PipelineTests
             originale = new Planche(Array.Empty<byte>());
             lue = originale;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Charge la planche et la lit, une fois pour toutes.
@@ -115,10 +101,6 @@ namespace Tradia.PipelineTests
 
             return ValueTask.CompletedTask;
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private static ZoneDeTexte Copier(ZoneDeTexte zone)
         {
@@ -170,7 +152,5 @@ namespace Tradia.PipelineTests
         {
             return new Coordonnee(point.X, point.Y);
         }
-
-        #endregion
     }
 }

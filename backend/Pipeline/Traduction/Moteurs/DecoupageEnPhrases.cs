@@ -23,8 +23,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
     /// </remarks>
     public static class DecoupageEnPhrases
     {
-        #region Méthodes
-
         /// <summary>
         /// Découpe un texte en phrases, ponctuation comprise.
         /// </summary>
@@ -77,10 +75,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
             return phrases.Count == 0 ? new[] { texte } : phrases;
         }
 
-        #endregion
-
-        #region Méthodes privées
-
         private static bool EstUneFinDePhrase(char caractere)
         {
             return caractere is '.' or '!' or '?' or '…';
@@ -95,7 +89,5 @@ namespace Tradia.Pipeline.Traduction.Moteurs
                 phrases.Add(propre);
             }
         }
-
-        #endregion
     }
 }

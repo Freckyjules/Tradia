@@ -10,6 +10,9 @@ services:
       - "127.0.0.1:8081:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      # Clés de signature du cookie de connexion, dans le volume : sans elles, chaque
+      # mise à jour déconnecterait tous les utilisateurs.
+      DataProtection__KeysPath: /data/keys
     # La base SQLite : sans ce volume, elle serait perdue à chaque mise à jour.
     volumes:
       - tradia-data:/data

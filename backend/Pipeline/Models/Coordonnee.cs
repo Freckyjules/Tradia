@@ -7,14 +7,8 @@ namespace Tradia.Pipeline.Models
     /// </summary>
     public class Coordonnee
     {
-        #region Attributs
-
         private double x;
         private double y;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Abscisse en pixels, mesurée depuis le bord gauche de l'image.
@@ -33,10 +27,6 @@ namespace Tradia.Pipeline.Models
             get { return y; }
             set { y = value; }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise un point placé à l'origine de l'image.
@@ -57,10 +47,6 @@ namespace Tradia.Pipeline.Models
             this.x = x;
             this.y = y;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Calcule la distance en ligne droite entre ce point et un autre.
@@ -93,7 +79,5 @@ namespace Tradia.Pipeline.Models
         {
             return FormattableString.Invariant($"({x:0.#}, {y:0.#})");
         }
-
-        #endregion
     }
 }

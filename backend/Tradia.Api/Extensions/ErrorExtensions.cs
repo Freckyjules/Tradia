@@ -9,12 +9,10 @@ namespace Tradia.Api.Extensions
     /// </summary>
     public static class ErrorExtensions
     {
-        #region Méthodes
-
         /// <summary>
         /// Construit la réponse HTTP d'une erreur métier, au format standard
-        /// <see cref="ProblemDetails"/> : 400 pour une validation, 409 pour un conflit,
-        /// 404 pour une ressource introuvable.
+        /// <see cref="ProblemDetails"/> : 400 pour une validation, 401 pour des identifiants
+        /// incorrects, 409 pour un conflit, 404 pour une ressource introuvable.
         /// </summary>
         /// <param name="controller">Le contrôleur qui répond.</param>
         /// <param name="error">L'erreur rendue par le cas d'usage.</param>
@@ -29,6 +27,7 @@ namespace Tradia.Api.Extensions
                 ErrorType.Validation => StatusCodes.Status400BadRequest,
                 ErrorType.Conflict => StatusCodes.Status409Conflict,
                 ErrorType.NotFound => StatusCodes.Status404NotFound,
+                ErrorType.Unauthorized => StatusCodes.Status401Unauthorized,
                 _ => StatusCodes.Status500InternalServerError
             };
 
@@ -41,7 +40,5 @@ namespace Tradia.Api.Extensions
 
             return controller.StatusCode(status, problem);
         }
-
-        #endregion
     }
 }

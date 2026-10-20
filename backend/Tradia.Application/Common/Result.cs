@@ -9,13 +9,7 @@ namespace Tradia.Application.Common
     /// </remarks>
     public class Result
     {
-        #region Attributs
-
         private readonly Error? error;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// <c>true</c> si le cas d'usage a réussi.
@@ -42,10 +36,6 @@ namespace Tradia.Application.Common
             get { return error ?? throw new InvalidOperationException("Un résultat réussi n'a pas d'erreur."); }
         }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Initialise un résultat. Passer par <see cref="Success"/> ou <see cref="Failure"/>.
         /// </summary>
@@ -54,10 +44,6 @@ namespace Tradia.Application.Common
         {
             this.error = error;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Crée un résultat réussi.
@@ -87,7 +73,5 @@ namespace Tradia.Application.Common
         {
             return Failure(error);
         }
-
-        #endregion
     }
 }

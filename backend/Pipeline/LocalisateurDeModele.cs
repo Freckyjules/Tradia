@@ -21,14 +21,8 @@ namespace Tradia.Pipeline
     /// </remarks>
     public static class LocalisateurDeModele
     {
-        #region Attributs
-
         private static readonly Lazy<IReadOnlyDictionary<string, string?>> Configuration =
             new(ChargerLaConfiguration);
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Trouve l'emplacement d'un modèle par sa clé de configuration.
@@ -51,10 +45,6 @@ namespace Tradia.Pipeline
                 "Voir backend/modeles.local.json.example pour la forme attendue.");
         }
 
-        #endregion
-
-        #region Méthodes privées
-
         private static Dictionary<string, string?> ChargerLaConfiguration()
         {
             string chemin = Path.Combine(AppContext.BaseDirectory, "modeles.local.json");
@@ -72,7 +62,5 @@ namespace Tradia.Pipeline
             return JsonSerializer.Deserialize<Dictionary<string, string?>>(contenu)
                 ?? new Dictionary<string, string?>();
         }
-
-        #endregion
     }
 }
