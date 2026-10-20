@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Utilisateur } from '../../../core/auth/utilisateur';
+import { LoginRequest } from '../models/login-request';
 import { RegisterRequest } from '../models/register-request';
 
 /**
@@ -16,5 +18,14 @@ export class CompteService {
    */
   inscrire(demande: RegisterRequest): Observable<void> {
     return this.http.post<void>('/api/user/register', demande);
+  }
+
+  /**
+   * Connecte l'utilisateur via `POST /api/user/login`. L'API dépose elle-même le cookie de
+   * session ; elle répond avec le nom de l'utilisateur (200) ou un 401 si les identifiants
+   * sont incorrects.
+   */
+  connecter(demande: LoginRequest): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>('/api/user/login', demande);
   }
 }
