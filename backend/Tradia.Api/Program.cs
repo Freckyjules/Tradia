@@ -79,6 +79,13 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    // Page de test des routes, à la racine du site, qui lit la description OpenAPI ci-dessus.
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "Tradia API v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
 
 // Pas de redirection vers https en développement : le proxy du front appelle
