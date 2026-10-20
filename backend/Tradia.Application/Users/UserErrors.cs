@@ -7,8 +7,6 @@ namespace Tradia.Application.Users
     /// </summary>
     public static class UserErrors
     {
-        #region Constantes
-
         /// <summary>
         /// Le mot de passe est trop court.
         /// </summary>
@@ -36,7 +34,5 @@ namespace Tradia.Application.Users
         public static readonly Error PasswordTooLong = Error.Validation(
             "User.PasswordTooLong",
             "Le mot de passe ne doit pas dépasser 128 caractères.");
-
-        #endregion
     }
 }

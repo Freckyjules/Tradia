@@ -7,8 +7,6 @@ namespace Tradia.Application.Dtos
     /// </summary>
     public class RegisterRequestDto
     {
-        #region Propriétés
-
         /// <summary>
         /// Nom d'utilisateur.
         /// </summary>
@@ -20,7 +18,5 @@ namespace Tradia.Application.Dtos
         /// </summary>
         [Required]
         public required string Password { get; set; }
-
-        #endregion
     }
 }

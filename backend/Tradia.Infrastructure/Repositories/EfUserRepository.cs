@@ -10,13 +10,7 @@ namespace Tradia.Infrastructure.Repositories
     /// </summary>
     public class EfUserRepository : IUserRepository
     {
-        #region Attributs
-
         private readonly TradiaDbContext context;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise le repository sur le contexte EF Core de l'application.
@@ -26,10 +20,6 @@ namespace Tradia.Infrastructure.Repositories
         {
             this.context = context;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc/>
         /// <exception cref="DbUpdateException">
@@ -50,7 +40,5 @@ namespace Tradia.Infrastructure.Repositories
 
             return await context.Users.AnyAsync(u => u.NormalizedUsername == normalizedUsername);
         }
-
-        #endregion
     }
 }

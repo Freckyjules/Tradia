@@ -5,8 +5,6 @@ namespace Tradia.Application.Common
     /// </summary>
     public sealed class Error
     {
-        #region Propriétés
-
         /// <summary>
         /// Identifiant stable de l'erreur, par exemple <c>User.UsernameTaken</c>.
         /// Contrairement au message, il ne change jamais : le front et les tests
@@ -24,10 +22,6 @@ namespace Tradia.Application.Common
         /// </summary>
         public ErrorType Type { get; }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Initialise une erreur. Passer par <see cref="Validation"/> ou
         /// <see cref="Conflict"/>, qui fixent la famille.
@@ -41,10 +35,6 @@ namespace Tradia.Application.Common
             Message = message;
             Type = type;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Crée une erreur de validation : une règle n'est pas respectée.
@@ -67,7 +57,5 @@ namespace Tradia.Application.Common
         {
             return new Error(code, message, ErrorType.Conflict);
         }
-
-        #endregion
     }
 }

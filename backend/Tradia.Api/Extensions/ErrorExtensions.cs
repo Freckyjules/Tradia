@@ -9,8 +9,6 @@ namespace Tradia.Api.Extensions
     /// </summary>
     public static class ErrorExtensions
     {
-        #region Méthodes
-
         /// <summary>
         /// Construit la réponse HTTP d'une erreur métier, au format standard
         /// <see cref="ProblemDetails"/> : 400 pour une validation, 409 pour un conflit,
@@ -41,7 +39,5 @@ namespace Tradia.Api.Extensions
 
             return controller.StatusCode(status, problem);
         }
-
-        #endregion
     }
 }

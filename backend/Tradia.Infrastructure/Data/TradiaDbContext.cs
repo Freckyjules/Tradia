@@ -8,14 +8,8 @@ namespace Tradia.Infrastructure.Data
     /// </summary>
     public class TradiaDbContext : DbContext
     {
-        #region Propriétés
-
         /// <summary>Table des utilisateurs.</summary>
         public DbSet<User> Users => Set<User>();
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise le contexte avec ses options (fournisseur et chaîne de connexion),
@@ -26,10 +20,6 @@ namespace Tradia.Infrastructure.Data
             : base(options)
         {
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,7 +39,5 @@ namespace Tradia.Infrastructure.Data
                 entity.HasIndex(u => u.NormalizedUsername).IsUnique();
             });
         }
-
-        #endregion
     }
 }

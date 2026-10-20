@@ -12,13 +12,7 @@ namespace Tradia.Api.Controllers
     [Produces("application/json")]
     public class UserController : ControllerBase
     {
-        #region Attributs
-
         private readonly IUserService userService;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>Injecte le service utilisateur.</summary>
         /// <param name="userService">Le service portant les cas d'usage utilisateur.</param>
@@ -26,10 +20,6 @@ namespace Tradia.Api.Controllers
         {
             this.userService = userService;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Enregistre un nouvel utilisateur.
@@ -55,7 +45,5 @@ namespace Tradia.Api.Controllers
 
             return StatusCode(StatusCodes.Status201Created);
         }
-
-        #endregion
     }
 }

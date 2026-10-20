@@ -9,8 +9,6 @@ namespace Tradia.Domain.Entities
     /// </remarks>
     public class User
     {
-        #region Propriétés
-
         /// <summary>
         /// Identifiant unique de l'utilisateur.
         /// </summary>
@@ -32,10 +30,6 @@ namespace Tradia.Domain.Entities
         /// Mot de passe haché de l'utilisateur.
         /// </summary>
         public string PasswordHash { get; private set; }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Réservé à EF Core, qui en a besoin pour relire la base.
@@ -71,10 +65,6 @@ namespace Tradia.Domain.Entities
             PasswordHash = passwordHash;
         }
 
-        #endregion
-
-        #region Méthodes
-
         /// <summary>
         /// Rend la forme d'un nom d'utilisateur qui sert à le comparer : tout en
         /// majuscules. C'est le seul endroit où cette règle est écrite ; l'inscription
@@ -91,7 +81,5 @@ namespace Tradia.Domain.Entities
         {
             return username.ToUpperInvariant();
         }
-
-        #endregion
     }
 }

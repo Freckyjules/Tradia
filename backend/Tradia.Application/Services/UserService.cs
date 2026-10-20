@@ -13,8 +13,6 @@ namespace Tradia.Application.Services
     /// </summary>
     public class UserService : IUserService
     {
-        #region Constantes
-
         private const int LongueurMinimaleDuMotDePasse = 8;
         private const int LongueurMaximaleDuMotDePasse = 128;
 
@@ -24,16 +22,8 @@ namespace Tradia.Application.Services
         /// </summary>
         private static readonly Regex FormatDuNomDUtilisateur = new Regex("^[A-Za-z0-9_-]{3,20}$");
 
-        #endregion
-
-        #region Attributs
-
         private readonly IPasswordHasher passwordHasher;
         private readonly IUserRepository userRepository;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise une nouvelle instance de la classe <see cref="UserService"/>.
@@ -45,10 +35,6 @@ namespace Tradia.Application.Services
             this.passwordHasher = passwordHasher;
             this.userRepository = userRepository;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc/>
         public async Task<Result> RegisterUserAsync(RegisterRequestDto request)
@@ -79,7 +65,5 @@ namespace Tradia.Application.Services
 
             return Result.Success();
         }
-
-        #endregion
     }
 }
