@@ -20,8 +20,6 @@ namespace Tradia.IntegrationTests
     public class CustomWebApplicationFactory<TProgram>
         : WebApplicationFactory<TProgram> where TProgram : class
     {
-        #region Méthodes
-
         /// <summary>
         /// Remplace l'enregistrement du <see cref="TradiaDbContext"/> par une base en
         /// mémoire, et démarre l'API dans l'environnement « Test ».
@@ -74,10 +72,6 @@ namespace Tradia.IntegrationTests
             return host;
         }
 
-        #endregion
-
-        #region Méthodes privées
-
         /// <summary>
         /// Retire un service enregistré du conteneur, s'il existe.
         /// </summary>
@@ -91,7 +85,5 @@ namespace Tradia.IntegrationTests
                 services.Remove(descriptor);
             }
         }
-
-        #endregion
     }
 }

@@ -36,8 +36,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs.Nllb
     /// </remarks>
     public class TraductionNllb : TraductionSeq2SeqOnnx
     {
-        #region Constantes
-
         private const string FichierEncodeur = "encoder_model.onnx";
         private const string FichierDecodeur = "decoder_model.onnx";
         private const string FichierDecodeurAvecCache = "decoder_with_past_model.onnx";
@@ -64,10 +62,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs.Nllb
         /// </summary>
         private const string LangueCible = "fra_Latn";
 
-        #endregion
-
-        #region Attributs
-
         private InferenceSession encodeur;
         private InferenceSession decodeur;
         private InferenceSession decodeurAvecCache;
@@ -75,10 +69,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs.Nllb
         private int jetonDeLaSource;
         private int jetonDeLaCible;
         private int identifiantInconnu;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Charge le modèle exporté depuis le dossier indiqué.
@@ -139,10 +129,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs.Nllb
             decodeurAvecCache =
                 new InferenceSession(Exiger(cheminDuDossier, FichierDecodeurAvecCache));
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         /// <inheritdoc />
         protected override void Liberer()
@@ -338,7 +324,5 @@ namespace Tradia.Pipeline.Traduction.Moteurs.Nllb
 
             return trouves;
         }
-
-        #endregion
     }
 }

@@ -19,15 +19,9 @@ namespace Tradia.Pipeline.Traduction.Moteurs
     /// </remarks>
     public class FaisceauDeDecodage
     {
-        #region Attributs
-
         private List<int> jetons;
         private double score;
         private DenseTensor<float>[] cache;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Les jetons produits jusqu'ici, dans l'ordre.
@@ -63,10 +57,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
             get { return jetons[jetons.Count - 1]; }
         }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Crée un faisceau à partir de son historique, de son score et de son cache.
         /// </summary>
@@ -79,10 +69,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
             this.score = score;
             this.cache = cache;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Calcule le score rapporté à la longueur de l'hypothèse.
@@ -97,7 +83,5 @@ namespace Tradia.Pipeline.Traduction.Moteurs
         {
             return jetons.Count == 0 ? score : score / jetons.Count;
         }
-
-        #endregion
     }
 }

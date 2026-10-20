@@ -8,16 +8,10 @@ namespace Tradia.Pipeline.Models
     /// </summary>
     public class Quadrilatere
     {
-        #region Attributs
-
         private Coordonnee hautGauche;
         private Coordonnee hautDroit;
         private Coordonnee basDroit;
         private Coordonnee basGauche;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Coin haut gauche.
@@ -106,10 +100,6 @@ namespace Tradia.Pipeline.Models
             }
         }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Initialise un quadrilatère dont les quatre coins sont à l'origine.
         /// </summary>
@@ -140,10 +130,6 @@ namespace Tradia.Pipeline.Models
             this.basGauche = basGauche ?? throw new ArgumentNullException(nameof(basGauche));
         }
 
-        #endregion
-
-        #region Méthodes
-
         /// <summary>
         /// Construit un quadrilatère droit, aligné sur les axes de l'image. Utile
         /// pour les tests, et pour les moteurs qui ne gèrent pas l'inclinaison.
@@ -172,7 +158,5 @@ namespace Tradia.Pipeline.Models
             return FormattableString.Invariant($"HG{hautGauche} HD{hautDroit} BD{basDroit} BG{basGauche} ")
                 + FormattableString.Invariant($"[{Largeur:0.#} x {Hauteur:0.#} px, {Angle:0.#}°]");
         }
-
-        #endregion
     }
 }

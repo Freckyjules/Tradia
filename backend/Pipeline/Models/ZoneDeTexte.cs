@@ -12,8 +12,6 @@ namespace Tradia.Pipeline.Models
     /// </remarks>
     public class ZoneDeTexte
     {
-        #region Attributs
-
         private Quadrilatere rectangle;
         private double angle;
         private double? hauteurDeLigne;
@@ -23,10 +21,6 @@ namespace Tradia.Pipeline.Models
         private string? texteTraduit;
         private double confiance;
         private int? ordreDeLecture;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// L'emprise du bloc de texte sur la planche. C'est un rectangle droit — ce
@@ -154,10 +148,6 @@ namespace Tradia.Pipeline.Models
             set { ordreDeLecture = value; }
         }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Initialise une zone vide, sans géométrie ni texte.
         /// </summary>
@@ -173,10 +163,6 @@ namespace Tradia.Pipeline.Models
             confiance = 0;
             ordreDeLecture = null;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Décrit la zone sur plusieurs lignes, avec tout ce qu'elle porte. Les
@@ -221,7 +207,5 @@ namespace Tradia.Pipeline.Models
 
             return string.Join(Environment.NewLine, lignes);
         }
-
-        #endregion
     }
 }

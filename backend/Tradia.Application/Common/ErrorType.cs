@@ -20,6 +20,11 @@ namespace Tradia.Application.Common
         /// <summary>
         /// La ressource demandée n'existe pas.
         /// </summary>
-        NotFound
+        NotFound,
+
+        /// <summary>
+        /// L'identité de l'appelant n'a pas pu être établie (identifiants incorrects).
+        /// </summary>
+        Unauthorized
     }
 }

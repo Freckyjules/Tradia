@@ -56,21 +56,11 @@ namespace Tradia.Pipeline.Reecriture
     [SupportedOSPlatform("windows")]
     public class ReecrivainParAjustement : IReecrivainDeTexte
     {
-        #region Constantes
-
         private const float TailleMinimale = 8f;
         private const float PasDeReduction = 2f;
 
-        #endregion
-
-        #region Attributs
-
         private string nomDePolice;
         private Couleur couleur;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Le nom de la police utilisée pour le rendu du texte traduit.
@@ -89,10 +79,6 @@ namespace Tradia.Pipeline.Reecriture
             get { return couleur; }
             set { couleur = value ?? throw new ArgumentNullException(nameof(value)); }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise un réécrivain qui écrit en noir avec la police Arial.
@@ -128,10 +114,6 @@ namespace Tradia.Pipeline.Reecriture
             this.nomDePolice = nomDePolice;
             this.couleur = couleur ?? throw new ArgumentNullException(nameof(couleur));
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc />
         public Planche Reecrire(Planche planche)
@@ -185,10 +167,6 @@ namespace Tradia.Pipeline.Reecriture
             // touchée, et l'appelante garde son image nettoyée intacte.
             return planche.AvecImage(Encoder(composee));
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private static Bitmap Charger(byte[] image)
         {
@@ -381,7 +359,5 @@ namespace Tradia.Pipeline.Reecriture
 
             return lignes;
         }
-
-        #endregion
     }
 }

@@ -13,13 +13,7 @@ namespace Tradia.Pipeline.Models
     /// </remarks>
     public class Bulle
     {
-        #region Attributs
-
         private List<Coordonnee> contour;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Les points du contour, dans l'ordre du pourtour. La liste se modifie —
@@ -57,10 +51,6 @@ namespace Tradia.Pipeline.Models
             }
         }
 
-        #endregion
-
-        #region Constructeurs
-
         /// <summary>
         /// Initialise une bulle sans contour, à remplir point par point.
         /// </summary>
@@ -96,10 +86,6 @@ namespace Tradia.Pipeline.Models
                 throw new ArgumentException("Un contour de bulle demande au moins trois points.", nameof(points));
             }
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Indique si un point se trouve à l'intérieur de la bulle.
@@ -157,7 +143,5 @@ namespace Tradia.Pipeline.Models
         {
             return FormattableString.Invariant($"contour de {contour.Count} points, centré en {Centre}");
         }
-
-        #endregion
     }
 }

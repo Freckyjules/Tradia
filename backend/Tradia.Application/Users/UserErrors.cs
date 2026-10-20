@@ -7,8 +7,6 @@ namespace Tradia.Application.Users
     /// </summary>
     public static class UserErrors
     {
-        #region Constantes
-
         /// <summary>
         /// Le mot de passe est trop court.
         /// </summary>
@@ -37,6 +35,12 @@ namespace Tradia.Application.Users
             "User.PasswordTooLong",
             "Le mot de passe ne doit pas dépasser 128 caractères.");
 
-        #endregion
+        /// <summary>
+        /// Le nom d'utilisateur ou le mot de passe est incorrect. Un seul message pour
+        /// les deux cas : il ne doit pas révéler lequel des deux est faux.
+        /// </summary>
+        public static readonly Error InvalidCredentials = Error.Unauthorized(
+            "User.InvalidCredentials",
+            "Nom d'utilisateur ou mot de passe incorrect");
     }
 }

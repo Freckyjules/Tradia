@@ -31,13 +31,7 @@ namespace Tradia.Pipeline.Traduction
     /// </remarks>
     public class ChoixDuTraducteur
     {
-        #region Attributs
-
         private Dictionary<MoteurDeTraduction, Func<ITraducteur>> moteurs;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Les moteurs que ce choix sait construire.
@@ -46,10 +40,6 @@ namespace Tradia.Pipeline.Traduction
         {
             get { return this.moteurs.Keys.ToArray(); }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Crée le choix des traducteurs et monte la liste des moteurs connus. Aucun
@@ -63,10 +53,6 @@ namespace Tradia.Pipeline.Traduction
                 { MoteurDeTraduction.Nllb, () => new TraductionNllb(LocalisateurDeModele.Localiser("nllb")) }
             };
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Construit le traducteur du moteur demandé.
@@ -91,7 +77,5 @@ namespace Tradia.Pipeline.Traduction
 
             return this.moteurs[moteur]();
         }
-
-        #endregion
     }
 }

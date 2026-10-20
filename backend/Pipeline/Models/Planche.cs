@@ -24,15 +24,9 @@ namespace Tradia.Pipeline.Models
     /// </remarks>
     public class Planche
     {
-        #region Attributs
-
         private byte[] image;
         private SensDeLecture sens;
         private IReadOnlyList<ZoneDeTexte> zones;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Contenu binaire de l'image, tel quel et non décodé. Le format se reconnaît
@@ -60,10 +54,6 @@ namespace Tradia.Pipeline.Models
         {
             get { return zones; }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise une planche à partir de son image, dans le sens du manga
@@ -119,10 +109,6 @@ namespace Tradia.Pipeline.Models
             this.zones = new List<ZoneDeTexte>(zones);
         }
 
-        #endregion
-
-        #region Méthodes
-
         /// <summary>
         /// Construit une nouvelle planche portant les zones indiquées, avec la même
         /// image et le même sens de lecture.
@@ -151,7 +137,5 @@ namespace Tradia.Pipeline.Models
         {
             return new Planche(image, sens, zones);
         }
-
-        #endregion
     }
 }

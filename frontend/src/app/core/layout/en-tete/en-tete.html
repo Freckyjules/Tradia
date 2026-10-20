@@ -3,5 +3,18 @@
 
   <nav class="navigation">
     <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+
+    @if (session.utilisateur(); as utilisateur) {
+      <span class="utilisateur">Connecté : {{ utilisateur.username }}</span>
+      <button type="button" class="deconnexion" [disabled]="deconnexionEnCours()" (click)="deconnecter()">
+        Se déconnecter
+      </button>
+      @if (deconnexionEchouee()) {
+        <span class="erreur" role="alert">La déconnexion a échoué, réessayez.</span>
+      }
+    } @else {
+      <a routerLink="/compte/connexion" routerLinkActive="actif">Se connecter</a>
+      <a routerLink="/compte/inscription" routerLinkActive="actif">Créer un compte</a>
+    }
   </nav>
 </header>

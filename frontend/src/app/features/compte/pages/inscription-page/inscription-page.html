@@ -1,0 +1,31 @@
+<section class="carte">
+  <h1>Créer un compte</h1>
+
+  <form [formGroup]="formulaire" (ngSubmit)="inscrire()" novalidate>
+    <label for="username">Nom d'utilisateur</label>
+    <input id="username" type="text" formControlName="username" autocomplete="username" />
+    <p
+      class="aide"
+      [class.erreur]="formulaire.controls.username.touched && formulaire.controls.username.invalid"
+    >
+      {{ regleNom }}
+    </p>
+
+    <label for="password">Mot de passe</label>
+    <input id="password" type="password" formControlName="password" autocomplete="new-password" />
+    <p
+      class="aide"
+      [class.erreur]="formulaire.controls.password.touched && formulaire.controls.password.invalid"
+    >
+      {{ regleMotDePasse }}
+    </p>
+
+    @if (erreur(); as message) {
+      <p class="alerte" role="alert">{{ message }}</p>
+    }
+
+    <button type="submit" [disabled]="envoiEnCours()">Créer mon compte</button>
+  </form>
+
+  <p class="lien">Déjà un compte ? <a routerLink="/compte/connexion">Se connecter</a></p>
+</section>

@@ -19,6 +19,7 @@
 .navigation {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
 
   a {
@@ -30,4 +31,31 @@
       color: #fff;
     }
   }
+}
+
+.utilisateur {
+  color: #66bb6a;
+  font-weight: 600;
+}
+
+.deconnexion {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #ccc;
+  font: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+}
+
+.erreur {
+  color: #ef5350;
 }
