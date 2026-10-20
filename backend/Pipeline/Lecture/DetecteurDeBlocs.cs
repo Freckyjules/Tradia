@@ -20,8 +20,6 @@ namespace Tradia.Pipeline.Lecture
     /// </remarks>
     public class DetecteurDeBlocs : IDisposable
     {
-        #region Constantes
-
         /// <summary>
         /// Côté de l'image carrée qu'attend le modèle, en pixels.
         /// </summary>
@@ -38,16 +36,8 @@ namespace Tradia.Pipeline.Lecture
         /// </summary>
         private const double RecouvrementDunDoublon = 0.4;
 
-        #endregion
-
-        #region Attributs
-
         private InferenceSession session;
         private bool libere;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Charge le modèle depuis son fichier.
@@ -78,10 +68,6 @@ namespace Tradia.Pipeline.Lecture
             this.session = new InferenceSession(cheminDuModele);
             this.libere = false;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Trouve les blocs de dialogue d'une planche.
@@ -125,10 +111,6 @@ namespace Tradia.Pipeline.Lecture
 
             GC.SuppressFinalize(this);
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private static DenseTensor<float> Preparer(Mat planche)
         {
@@ -220,7 +202,5 @@ namespace Tradia.Pipeline.Lecture
 
             return laPlusPetite > 0 && aireCommune > RecouvrementDunDoublon * laPlusPetite;
         }
-
-        #endregion
     }
 }

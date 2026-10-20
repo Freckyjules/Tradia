@@ -23,8 +23,6 @@ namespace Tradia.PipelineTests
     /// </remarks>
     public static class ApercuDePlanche
     {
-        #region Constantes
-
         /// <summary>
         /// Les couleurs s'écrivent en bleu-vert-rouge, et non l'inverse : c'est
         /// l'ordre des octets d'OpenCV.
@@ -34,10 +32,6 @@ namespace Tradia.PipelineTests
         private static readonly Scalar CouleurDuRectangle = new Scalar(0, 200, 0);
         private static readonly Scalar CouleurDuNumero = new Scalar(255, 60, 0);
         private static readonly Scalar CouleurDuChemin = new Scalar(255, 0, 255);
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Dessine l'aperçu de la planche et l'attache au test en cours.
@@ -115,10 +109,6 @@ namespace Tradia.PipelineTests
             return dessin.ImEncode(".png");
         }
 
-        #endregion
-
-        #region Méthodes privées
-
         private static void DessinerLeChemin(Mat dessin, IReadOnlyList<ZoneDeTexte> zones)
         {
             // Sans rang partout, un chemin relierait des blocs dans un ordre qui n'a
@@ -189,7 +179,5 @@ namespace Tradia.PipelineTests
         {
             return new Point((int)Math.Round(point.X), (int)Math.Round(point.Y));
         }
-
-        #endregion
     }
 }

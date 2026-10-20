@@ -33,8 +33,6 @@ namespace Tradia.Pipeline.OrdreDeLecture
     /// </remarks>
     public class OrdonnanceurDeZones : IOrdonnanceurDeZones
     {
-        #region Méthodes
-
         /// <inheritdoc />
         public Planche Ordonner(Planche planche)
         {
@@ -57,10 +55,6 @@ namespace Tradia.Pipeline.OrdreDeLecture
 
             return planche.AvecZones(ordonnees);
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private static List<List<ZoneDeTexte>> DecouperEnBandes(IReadOnlyList<ZoneDeTexte> zones)
         {
@@ -120,7 +114,5 @@ namespace Tradia.Pipeline.OrdreDeLecture
 
             return Math.Max(rectangle.BasGauche.Y, rectangle.BasDroit.Y);
         }
-
-        #endregion
     }
 }

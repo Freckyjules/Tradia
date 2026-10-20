@@ -29,8 +29,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
     /// </remarks>
     public abstract class TraductionSeq2SeqOnnx : ITraducteur
     {
-        #region Constantes
-
         /// <summary>
         /// Nom du fichier de configuration, présent dans tout export Optimum.
         /// </summary>
@@ -63,10 +61,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
         /// </summary>
         protected const int NombreDeFaisceauxParDefaut = 4;
 
-        #endregion
-
-        #region Attributs
-
         private int identifiantDeRemplissage;
         private int identifiantDeFin;
         private int debutDuDecodage;
@@ -75,10 +69,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
         private int dimensionDeTete;
         private int nombreDeFaisceaux;
         private bool libere;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Nombre de couches du décodeur, donc de blocs de cache à transporter.
@@ -103,10 +93,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
         {
             get { return identifiantDeRemplissage; }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Lit la configuration du modèle et fixe la largeur de la recherche.
@@ -142,10 +128,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
 
             LireLaConfiguration(Exiger(cheminDuDossier, FichierConfiguration));
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc />
         public Task<Planche> TraduireAsync(
@@ -193,10 +175,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs
 
             GC.SuppressFinalize(this);
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         /// <summary>
         /// Traduit un texte en identifiants d'entrée pour le modèle, marqueurs compris.
@@ -598,7 +576,5 @@ namespace Tradia.Pipeline.Traduction.Moteurs
                 ? valeur.GetInt32()
                 : defaut;
         }
-
-        #endregion
     }
 }

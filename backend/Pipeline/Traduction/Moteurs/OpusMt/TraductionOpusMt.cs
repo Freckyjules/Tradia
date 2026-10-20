@@ -27,16 +27,10 @@ namespace Tradia.Pipeline.Traduction.Moteurs.OpusMt
     /// </remarks>
     public partial class TraductionOpusMt : TraductionSeq2SeqOnnx
     {
-        #region Constantes
-
         private const string FichierEncodeur = "encoder_model.onnx";
         private const string FichierDecodeur = "decoder_model_merged.onnx";
         private const string FichierTokeniseur = "source.spm";
         private const string FichierVocabulaire = "vocab.json";
-
-        #endregion
-
-        #region Attributs
 
         private InferenceSession encodeur;
         private InferenceSession decodeur;
@@ -44,10 +38,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs.OpusMt
         private Dictionary<string, int> versIdentifiant;
         private string[] versPiece;
         private int identifiantInconnu;
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Charge le modèle exporté depuis le dossier indiqué.
@@ -102,10 +92,6 @@ namespace Tradia.Pipeline.Traduction.Moteurs.OpusMt
             encodeur = new InferenceSession(Exiger(cheminDuDossier, FichierEncodeur));
             decodeur = new InferenceSession(Exiger(cheminDuDossier, FichierDecodeur));
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         /// <inheritdoc />
         protected override void Liberer()
@@ -276,7 +262,5 @@ namespace Tradia.Pipeline.Traduction.Moteurs.OpusMt
 
             identifiantInconnu = versIdentifiant.TryGetValue("<unk>", out int inconnu) ? inconnu : 1;
         }
-
-        #endregion
     }
 }

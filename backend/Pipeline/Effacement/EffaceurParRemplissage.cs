@@ -32,13 +32,7 @@ namespace Tradia.Pipeline.Effacement
     /// </remarks>
     public class EffaceurParRemplissage : IEffaceurDeTexte
     {
-        #region Attributs
-
         private Scalar couleur;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// La couleur de repli, dont on repeint les bulles dont la lecture n'a pas
@@ -50,10 +44,6 @@ namespace Tradia.Pipeline.Effacement
             get { return couleur; }
             set { couleur = value; }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise un effaceur qui se rabat sur le blanc pour les bulles dont le
@@ -75,10 +65,6 @@ namespace Tradia.Pipeline.Effacement
         {
             this.couleur = couleur;
         }
-
-        #endregion
-
-        #region Méthodes
 
         /// <inheritdoc />
         public Planche Effacer(Planche planche)
@@ -119,10 +105,6 @@ namespace Tradia.Pipeline.Effacement
             return planche.AvecImage(nettoyee.ImEncode(".png"));
         }
 
-        #endregion
-
-        #region Méthodes privées
-
         private Scalar Teinte(ZoneDeTexte zone)
         {
             // La couleur mesurée sur la planche l'emporte : un scan tire vers le crème
@@ -152,7 +134,5 @@ namespace Tradia.Pipeline.Effacement
 
             return contour;
         }
-
-        #endregion
     }
 }

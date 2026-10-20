@@ -43,26 +43,16 @@ namespace Tradia.Pipeline.Lecture
     /// </remarks>
     public class LecteurDePlanche : ILecteurDePlanche
     {
-        #region Constantes
-
         /// <summary>
         /// Marge ajoutée autour d'un bloc avant de le découper. La boîte du modèle
         /// colle au texte, et sans marge le dernier caractère se fait rogner.
         /// </summary>
         private const int MargeDeDecoupe = 12;
 
-        #endregion
-
-        #region Attributs
-
         private DetecteurDeBlocs detecteur;
         private PaddleOcrAll moteurDeLecture;
         private double confianceMinimale;
         private bool libere;
-
-        #endregion
-
-        #region Propriétés
 
         /// <summary>
         /// Seuil en dessous duquel un bloc lu est jeté, entre 0 et 1.
@@ -72,10 +62,6 @@ namespace Tradia.Pipeline.Lecture
             get { return confianceMinimale; }
             set { confianceMinimale = value; }
         }
-
-        #endregion
-
-        #region Constructeurs
 
         /// <summary>
         /// Initialise un lecteur à partir du fichier du modèle, avec un seuil de
@@ -139,10 +125,6 @@ namespace Tradia.Pipeline.Lecture
             };
         }
 
-        #endregion
-
-        #region Méthodes
-
         /// <inheritdoc />
         public Task<Planche> LireAsync(Planche planche, CancellationToken jetonAnnulation = default)
         {
@@ -177,10 +159,6 @@ namespace Tradia.Pipeline.Lecture
 
             GC.SuppressFinalize(this);
         }
-
-        #endregion
-
-        #region Méthodes privées
 
         private IReadOnlyList<ZoneDeTexte> Lire(byte[] image, CancellationToken jetonAnnulation)
         {
@@ -421,7 +399,5 @@ namespace Tradia.Pipeline.Lecture
 
             return new Rect(x, y, Math.Max(1, droite - x), Math.Max(1, bas - y));
         }
-
-        #endregion
     }
 }
