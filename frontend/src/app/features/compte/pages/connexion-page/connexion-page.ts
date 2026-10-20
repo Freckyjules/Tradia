@@ -1,14 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { lireCodeErreur } from '../../../../core/api/probleme-api';
 import { Session } from '../../../../core/auth/session';
-import { urlDeRetourSure } from '../../../../core/auth/url-de-retour';
 import { CompteService } from '../../services/compte-service';
 
 /**
  * Page de connexion (US-3.2) : nom d'utilisateur et mot de passe. Après une connexion
- * réussie, renvoie l'utilisateur à la page où il était.
+ * réussie, l'utilisateur arrive sur l'accueil.
  */
 @Component({
   selector: 'app-connexion-page',
@@ -20,9 +19,6 @@ export class ConnexionPage {
   private readonly compteService = inject(CompteService);
   private readonly session = inject(Session);
   private readonly router = inject(Router);
-  private readonly urlDeRetour = urlDeRetourSure(
-    inject(ActivatedRoute).snapshot.queryParamMap.get('returnUrl'),
-  );
 
   /** Message transmis par la page précédente (état de navigation), s'il y en a un. */
   protected readonly message: string | undefined = (
@@ -56,7 +52,7 @@ export class ConnexionPage {
     this.compteService.connecter(this.formulaire.getRawValue()).subscribe({
       next: (utilisateur) => {
         this.session.definir(utilisateur);
-        this.router.navigateByUrl(this.urlDeRetour);
+        this.router.navigateByUrl('/');
       },
       error: (e: unknown) => {
         this.envoiEnCours.set(false);

@@ -1,7 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Session } from '../../auth/session';
 
 /**
@@ -18,15 +16,6 @@ export class EnTete {
   private readonly router = inject(Router);
 
   protected readonly session = inject(Session);
-
-  /** Page où se trouve l'utilisateur : la connexion l'y ramène une fois terminée. */
-  protected readonly urlCourante = toSignal(
-    this.router.events.pipe(
-      filter((evenement) => evenement instanceof NavigationEnd),
-      map((evenement) => evenement.urlAfterRedirects),
-    ),
-    { initialValue: this.router.url },
-  );
 
   protected readonly deconnexionEnCours = signal(false);
 

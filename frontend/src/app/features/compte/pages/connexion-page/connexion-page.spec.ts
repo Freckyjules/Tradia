@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { ActivatedRoute, Navigation, Params, Router, provideRouter } from '@angular/router';
+import { Navigation, Router, provideRouter } from '@angular/router';
 import { Session } from '../../../../core/auth/session';
 import { MESSAGE_COMPTE_CREE } from '../inscription-page/inscription-page';
 import { ConnexionPage } from './connexion-page';
@@ -21,12 +21,8 @@ describe('ConnexionPage', () => {
 
   afterEach(() => http.verify());
 
-  /** Crée la page : `returnUrl` est l'adresse de retour demandée, `state` l'état de navigation reçu. */
-  function afficher(options: { returnUrl?: string; state?: { message: string } } = {}) {
-    const route = TestBed.inject(ActivatedRoute);
-    (route.snapshot as unknown as { queryParams: Params }).queryParams = options.returnUrl
-      ? { returnUrl: options.returnUrl }
-      : {};
+  /** Crée la page : `state` est l'état de navigation reçu de la page précédente. */
+  function afficher(options: { state?: { message: string } } = {}) {
     vi.spyOn(router, 'currentNavigation').mockReturnValue(
       options.state ? ({ extras: { state: options.state } } as unknown as Navigation) : null,
     );
@@ -70,31 +66,22 @@ describe('ConnexionPage', () => {
     expect(requete.request.body).toEqual({ username: 'jules', password: 'motdepasse1' });
   });
 
-  it('retient l\'utilisateur connecté et le renvoie à la page où il était', () => {
-    const { racine } = afficher({ returnUrl: '/manga/3' });
-
-    saisir(racine, 'jules', 'motdepasse1');
-    http.expectOne('/api/user/login').flush({ username: 'jules' });
-
-    expect(TestBed.inject(Session).utilisateur()).toEqual({ username: 'jules' });
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/manga/3');
-  });
-
-  it("renvoie vers l'accueil quand aucune page n'est demandée", () => {
+  it("retient l'utilisateur connecté", () => {
     const { racine } = afficher();
 
     saisir(racine, 'jules', 'motdepasse1');
     http.expectOne('/api/user/login').flush({ username: 'jules' });
 
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+    expect(TestBed.inject(Session).utilisateur()).toEqual({ username: 'jules' });
   });
 
-  it("ne renvoie jamais vers un autre site", () => {
-    const { racine } = afficher({ returnUrl: '//autre-site.com' });
+  it("envoie l'utilisateur connecté sur l'accueil, et nulle part ailleurs", () => {
+    const { racine } = afficher();
 
     saisir(racine, 'jules', 'motdepasse1');
     http.expectOne('/api/user/login').flush({ username: 'jules' });
 
+    expect(router.navigateByUrl).toHaveBeenCalledTimes(1);
     expect(router.navigateByUrl).toHaveBeenCalledWith('/');
   });
 

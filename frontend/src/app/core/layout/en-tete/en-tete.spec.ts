@@ -44,14 +44,14 @@ describe('EnTete', () => {
     expect(boutonDeDeconnexion(racine)).toBeNull();
   });
 
-  it("le lien « Se connecter » ramène à la page où l'on était", async () => {
+  it("le lien « Se connecter » mène à la page de connexion, sans paramètre", async () => {
     const { racine } = await afficher();
 
     const lien = Array.from(racine.querySelectorAll('a')).find(
       (a) => a.textContent?.trim() === 'Se connecter',
     );
 
-    expect(lien?.getAttribute('href')).toBe('/compte/connexion?returnUrl=%2F');
+    expect(lien?.getAttribute('href')).toBe('/compte/connexion');
   });
 
   it("affiche le nom de l'utilisateur connecté, sans lien de connexion", async () => {
