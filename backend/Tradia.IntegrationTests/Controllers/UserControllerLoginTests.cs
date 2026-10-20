@@ -48,6 +48,35 @@ namespace Tradia.IntegrationTests.Controllers
         }
 
         /// <summary>
+        /// La réponse ne révèle que le nom : l'identifiant reste côté serveur.
+        /// </summary>
+        [Fact]
+        public async Task Login_IdentifiantsCorrects_NeRenvoiePasLIdentifiant()
+        {
+            string nom = await CreerCompte(NomInedit());
+
+            HttpResponseMessage reponse = await Connecter(nom, MotDePasseValide);
+
+            using JsonDocument corps = await LireCorps(reponse);
+            Assert.False(corps.RootElement.TryGetProperty("id", out _));
+        }
+
+        /// <summary>
+        /// <c>GET api/user/me</c> ne révèle que le nom, comme la connexion.
+        /// </summary>
+        [Fact]
+        public async Task Me_ApresConnexion_NeRenvoiePasLIdentifiant()
+        {
+            string nom = await CreerCompte(NomInedit());
+            await Connecter(nom, MotDePasseValide);
+
+            HttpResponseMessage reponse = await client.GetAsync(RouteMoi, TestContext.Current.CancellationToken);
+
+            using JsonDocument corps = await LireCorps(reponse);
+            Assert.False(corps.RootElement.TryGetProperty("id", out _));
+        }
+
+        /// <summary>
         /// Les majuscules du nom sont ignorées : « jules » peut se connecter en écrivant « JULES ».
         /// </summary>
         [Fact]

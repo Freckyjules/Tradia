@@ -58,7 +58,7 @@ namespace Tradia.Api.Controllers
         /// </returns>
         [HttpPost("login")]
         [EndpointSummary("Connecte un utilisateur.")]
-        [ProducesResponseType(typeof(AuthenticatedUserDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Login(LoginRequestDto request)
@@ -72,7 +72,7 @@ namespace Tradia.Api.Controllers
 
             await HttpContext.SignInUserAsync(result.Value);
 
-            return Ok(result.Value);
+            return Ok(ToResponse(result.Value));
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Tradia.Api.Controllers
         [HttpGet("me")]
         [Authorize]
         [EndpointSummary("Rend l'utilisateur connecté.")]
-        [ProducesResponseType(typeof(AuthenticatedUserDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public IActionResult Me()
         {
@@ -94,7 +94,17 @@ namespace Tradia.Api.Controllers
                 return Unauthorized();
             }
 
-            return Ok(user);
+            return Ok(ToResponse(user));
+        }
+
+        /// <summary>
+        /// Ne garde de l'utilisateur que ce que l'API révèle : son nom, jamais son identifiant.
+        /// </summary>
+        /// <param name="user">L'utilisateur connecté.</param>
+        /// <returns>La réponse à renvoyer au client.</returns>
+        private static UserResponseDto ToResponse(AuthenticatedUserDto user)
+        {
+            return new UserResponseDto { Username = user.Username };
         }
     }
 }
