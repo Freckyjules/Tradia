@@ -44,4 +44,34 @@ Content-Type: application/json
   "username": "jules"
 }
 
+### Connexion réussie : 200 et un cookie « tradia.auth » (créer d'abord le compte avec l'inscription)
+POST {{Tradia.Api_HostAddress}}/api/user/login
+Content-Type: application/json
+
+{
+  "username": "jules",
+  "password": "motdepasse1"
+}
+
+### Les majuscules du nom sont ignorées : 200
+POST {{Tradia.Api_HostAddress}}/api/user/login
+Content-Type: application/json
+
+{
+  "username": "JULES",
+  "password": "motdepasse1"
+}
+
+### Identifiants incorrects : 401 User.InvalidCredentials (même réponse pour un nom inconnu ou un mauvais mot de passe)
+POST {{Tradia.Api_HostAddress}}/api/user/login
+Content-Type: application/json
+
+{
+  "username": "jules",
+  "password": "mauvaismdp1"
+}
+
+### Utilisateur connecté : 200 après la connexion, 401 sinon
+GET {{Tradia.Api_HostAddress}}/api/user/me
+
 ###
