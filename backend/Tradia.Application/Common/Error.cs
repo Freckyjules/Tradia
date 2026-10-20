@@ -57,5 +57,16 @@ namespace Tradia.Application.Common
         {
             return new Error(code, message, ErrorType.Conflict);
         }
+
+        /// <summary>
+        /// Crée une erreur d'authentification : l'identité de l'appelant n'est pas établie.
+        /// </summary>
+        /// <param name="code">Identifiant stable de l'erreur.</param>
+        /// <param name="message">Message destiné à l'utilisateur.</param>
+        /// <returns>L'erreur créée.</returns>
+        public static Error Unauthorized(string code, string message)
+        {
+            return new Error(code, message, ErrorType.Unauthorized);
+        }
     }
 }
