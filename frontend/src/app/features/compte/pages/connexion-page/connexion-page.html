@@ -5,6 +5,23 @@
     <p class="succes" role="status">{{ message }}</p>
   }
 
-  <p>Le formulaire de connexion arrive bientôt.</p>
-  <p><a routerLink="/compte/inscription">Créer un compte</a></p>
+  <form [formGroup]="formulaire" (ngSubmit)="connecter()" novalidate>
+    <label for="username">Nom d'utilisateur</label>
+    <input id="username" type="text" formControlName="username" autocomplete="username" />
+
+    <label for="password">Mot de passe</label>
+    <input id="password" type="password" formControlName="password" autocomplete="current-password" />
+
+    @if (soumis() && formulaire.invalid) {
+      <p class="alerte" role="alert">Saisissez votre nom d'utilisateur et votre mot de passe.</p>
+    }
+
+    @if (erreur(); as texte) {
+      <p class="alerte" role="alert">{{ texte }}</p>
+    }
+
+    <button type="submit" [disabled]="envoiEnCours()">Se connecter</button>
+  </form>
+
+  <p class="lien">Pas encore de compte ? <a routerLink="/compte/inscription">Créer un compte</a></p>
 </section>
