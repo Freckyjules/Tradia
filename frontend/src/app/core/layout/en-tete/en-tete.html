@@ -13,7 +13,7 @@
         <span class="erreur" role="alert">La déconnexion a échoué, réessayez.</span>
       }
     } @else {
-      <a routerLink="/compte/connexion" [queryParams]="{ returnUrl: urlCourante() }" routerLinkActive="actif">Se connecter</a>
+      <a routerLink="/compte/connexion" routerLinkActive="actif">Se connecter</a>
       <a routerLink="/compte/inscription" routerLinkActive="actif">Créer un compte</a>
     }
   </nav>
