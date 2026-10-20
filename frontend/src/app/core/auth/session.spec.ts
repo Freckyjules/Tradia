@@ -77,4 +77,27 @@ describe('Session', () => {
 
     expect(session.utilisateur()).toBeNull();
   });
+
+  it("déconnecte l'utilisateur avec POST /api/user/logout", async () => {
+    session.definir({ username: 'jules' });
+
+    const deconnexion = session.deconnecter();
+
+    const requete = http.expectOne('/api/user/logout');
+    expect(requete.request.method).toBe('POST');
+    requete.flush(null, { status: 204, statusText: 'No Content' });
+
+    expect(await deconnexion).toBe(true);
+    expect(session.utilisateur()).toBeNull();
+  });
+
+  it("garde l'utilisateur connecté quand l'API ne répond pas à la déconnexion", async () => {
+    session.definir({ username: 'jules' });
+
+    const deconnexion = session.deconnecter();
+    http.expectOne('/api/user/logout').error(new ProgressEvent('error'));
+
+    expect(await deconnexion).toBe(false);
+    expect(session.utilisateur()).toEqual({ username: 'jules' });
+  });
 });
