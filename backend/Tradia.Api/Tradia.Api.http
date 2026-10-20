@@ -74,4 +74,7 @@ Content-Type: application/json
 ### Utilisateur connecté : 200 après la connexion, 401 sinon
 GET {{Tradia.Api_HostAddress}}/api/user/me
 
+### Déconnexion : 204 et le cookie « tradia.auth » est effacé (204 aussi si personne n'est connecté)
+POST {{Tradia.Api_HostAddress}}/api/user/logout
+
 ###

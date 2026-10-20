@@ -37,6 +37,18 @@ namespace Tradia.Api.Extensions
         }
 
         /// <summary>
+        /// Déconnecte l'utilisateur : la réponse demande au navigateur d'effacer le cookie de
+        /// session. Seul le serveur peut le faire, car le cookie est <c>HttpOnly</c>, donc
+        /// illisible et intouchable par le JavaScript du site.
+        /// </summary>
+        /// <param name="httpContext">La requête en cours, dont la réponse portera l'ordre d'effacement.</param>
+        /// <returns>Une tâche représentant l'opération asynchrone.</returns>
+        public static Task SignOutUserAsync(this HttpContext httpContext)
+        {
+            return httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+
+        /// <summary>
         /// Relit l'utilisateur connecté dans le cookie de session. C'est la contrepartie de
         /// <see cref="SignInUserAsync"/> : les deux vivent ensemble pour rester d'accord sur
         /// les informations que porte le cookie.
